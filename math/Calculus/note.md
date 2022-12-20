@@ -2,7 +2,7 @@
 
 ## Last Upate
 
-2022-12-15
+2022-12-19
 
 ## 求导 推导公式
 
@@ -11,11 +11,20 @@ f'(x) = lim_{\Delta x \to 0}\frac{f(x+\Delta x) - f(x)}{\Delta x}
 $$
 
 $$
-lim_{x\to0}\frac{\sin x}{x} = 0
+lim_{x\to0}\frac{\sin x}{x} = 1
 $$
 
 $$
 lim_{x\to0}\frac{1-\cos x}{x} = 0
+
+$$
+
+$$
+\frac{\mathrm{d}}{\mathrm{dx}}e^x = e^x
+$$
+
+$$
+a^x = e^{x\ln a}
 $$
 
 ## 三角公式
@@ -45,7 +54,7 @@ $$
 $$
 
 $$
-{\frac{u}{v}}'=\frac{{u}'v-u{v}'}{v^2} (v\ne0)
+{(\frac{u}{v})}'=\frac{{u}'v-u{v}'}{v^2} (v\ne0)
 $$
 
 ## Chain Rule
@@ -56,8 +65,32 @@ $$
 
 $$
 
+## Implicit Differentiation
+
+## Rules of Logs
+
+$$
+\ln(MN) = \ln M + \ln N
+$$
+
+$$
+\ln\frac{M}{N} = \ln M - \ln N
+$$
+
+$$
+\ln(M^k) = k\ln M
+$$
+
+$$
+\ln(M^k) \ne (\ln M)^k
+$$
+
+$$
+\log_bM = \frac{\ln M}{\ln b}
+$$
+
 ## Bookmark
 
 [1C. Slope and derivative]
 
-[Session 13: Implicit Differentiation](https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/pages/1.-differentiation/part-b-implicit-differentiation-and-inverse-functions/session-13-implicit-differentiation/)
+[Session 19: An Interesting Limit Involving e](https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/pages/1.-differentiation/part-b-implicit-differentiation-and-inverse-functions/session-19-an-interesting-limit-involving-e/)
