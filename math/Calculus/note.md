@@ -2,7 +2,7 @@
 
 ## Last Upate
 
-2022-12-19
+2022-12-20
 
 ## 求导 推导公式
 
@@ -89,8 +89,24 @@ $$
 \log_bM = \frac{\ln M}{\ln b}
 $$
 
+## Value of e
+
+$$
+lim_{n\to\infty}(1+\frac{1}{n})^n = e^{lim_{n\to\infty}(\ln[(1+\frac{1}{n})^n])} = e^1 = e
+$$
+
+## Key Notes
+
+$$
+(e^{a} + e^{-a})(e^{b}-e^{-b})=e^{a+b}+e^{b-a}-e^{a-b}-e^{-a-b}
+$$
+
+## Reading
+
+[Derivatives of Hyperbolic Sine and Cosine](./doc/Derivatives_of_Hyperbolic_Sine_and_Cosine.pdf)
+
 ## Bookmark
 
 [1C. Slope and derivative]
 
-[Session 19: An Interesting Limit Involving e](https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/pages/1.-differentiation/part-b-implicit-differentiation-and-inverse-functions/session-19-an-interesting-limit-involving-e/)
+[2. Applications of Differentiation](https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/pages/unit-2-applications-of-differentiation/)
