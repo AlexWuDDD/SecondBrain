@@ -2,7 +2,7 @@
 
 ## Last Update
 
-2022-12-20
+2022-12-21
 
 ## Inverse Matrices
 
@@ -17,8 +17,27 @@ $$
 
 ### Solution
 
-<img src="./capture/InverseMatrices.jpg" alt="drawing" style="width:200px;"/>
+<img src="./capture/InverseMatrices.jpg" alt="drawing" style="width:300px;"/>
+
+## Factorization into A = LU
+
+Find the LU-decomposition of the matrix
+$$
+A = \begin{bmatrix}
+ 1& 0& 1\\
+ a& a& a\\
+ b& b& a
+\end{bmatrix}
+$$
+
+when it exists
+
+For which real number a and b does it exists
+
+### Solution
+
+<img src="./capture/Factorization_into_A=LU.jpg" alt="drawing" style="width:300px;"/>
 
 ## Bookmark
 
-[Factorization into A = LU](https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/pages/ax-b-and-the-four-subspaces/factorization-into-a-lu/)
+[Transposes, Permutations, Vector Spaces](https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/pages/ax-b-and-the-four-subspaces/transposes-permutations-vector-spaces//)

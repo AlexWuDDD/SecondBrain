@@ -2,7 +2,7 @@
 
 ## Last Upate
 
-2022-12-20
+2022-12-21
 
 ## 求导 推导公式
 
@@ -105,8 +105,16 @@ $$
 
 [Derivatives of Hyperbolic Sine and Cosine](./doc/Derivatives_of_Hyperbolic_Sine_and_Cosine.pdf)
 
+## Applications of Differentiation
+
+### Liner Approximations
+
+> When using linear approximation, we replace the formula describing a curve by the formula of a straight line. This makes calculation and estimation much easier.
+
+$$
+f(x) \approx f(x_0) + f'(x_0)(x-x_0)
+$$
+
 ## Bookmark
 
-[1C. Slope and derivative]
-
-[2. Applications of Differentiation](https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/pages/unit-2-applications-of-differentiation/)
+[Session 25: Introduction to Quadratic Approximation](https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/pages/unit-2-applications-of-differentiation/part-a-approximation-and-curve-sketching/session-25-introduction-to-quadratic-appoximation/)
