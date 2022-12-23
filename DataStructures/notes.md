@@ -6,4 +6,4 @@
 
 ## Bookmark
 
-[1.1 Essestials](https://joshhug.gitbooks.io/hug61b/content/chap1/chap11.html)
+[1.2 Objects](https://joshhug.gitbooks.io/hug61b/content/chap1/chap12.html)

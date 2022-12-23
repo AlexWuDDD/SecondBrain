@@ -2,7 +2,7 @@
 
 ## Last Upate
 
-2022-12-21
+2022-12-22
 
 ## 求导 推导公式
 
@@ -115,6 +115,15 @@ $$
 f(x) \approx f(x_0) + f'(x_0)(x-x_0)
 $$
 
+### Quadratic Approximation
+
+>Linear approximation uses the first derivative to find the straight line that most closely resembles a curve at some point. Quadratic approximation uses the first and second derivatives to find the parabola closest to the curve near a point.
+
+> use these when linear is not enough
+$$
+f(x) \approx  f(x_0) + f'(x_0)(x-x_0) + \frac{f''(x_0)}{2}(x-x_0)^2
+$$
+
 ## Bookmark
 
-[Session 25: Introduction to Quadratic Approximation](https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/pages/unit-2-applications-of-differentiation/part-a-approximation-and-curve-sketching/session-25-introduction-to-quadratic-appoximation/)
+[Session 27: Sketching Graphs I - Polynomials and Rational Functions](https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/pages/unit-2-applications-of-differentiation/part-a-approximation-and-curve-sketching/session-27-sketching-graphs-i-polynomials-and-rational-functions/)
