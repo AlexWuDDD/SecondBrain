@@ -2,7 +2,7 @@
 
 ## Last Update
 
-2022-12-23
+2022-12-24
 
 ## Acronym
 
@@ -117,4 +117,4 @@ Add16(..., out[0..3]=t1, out[4..15]=t2);
 
 ## Bookmark
 
-[Next](https://www.coursera.org/learn/build-a-computer/home/week/1)
+[Next](https://www.coursera.org/learn/build-a-computer/home/week/2)

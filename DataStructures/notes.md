@@ -2,8 +2,8 @@
 
 ## Last Update
 
-2022-12-21
+2022-12-26
 
 ## Bookmark
 
-[1.2 Objects](https://joshhug.gitbooks.io/hug61b/content/chap1/chap12.html)
+[Lists](https://joshhug.gitbooks.io/hug61b/content/chap2/chap21.html)
