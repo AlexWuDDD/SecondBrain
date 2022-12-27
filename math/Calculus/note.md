@@ -2,7 +2,7 @@
 
 ## Last Upate
 
-2022-12-22
+2022-12-26
 
 ## 求导 推导公式
 
@@ -124,6 +124,29 @@ $$
 f(x) \approx  f(x_0) + f'(x_0)(x-x_0) + \frac{f''(x_0)}{2}(x-x_0)^2
 $$
 
+### Sketching Graphs
+
+#### Curve Sketching
+
+```txt
+Goal: Draw graph of f using f', f'' postive/negative
+```
+
+```txt
+Warning: Do't abandon your precalulus skills and common sense !!!
+```
+
+- f' > 0 --> f is increasing
+- f' < 0 --> f is decreasing
+- f'' > 0  --> f' is increasing -> concave up
+- f'' < 0  --> f' is decreasing -> concace down
+
+> If $f'(x_0) = 0$, we call $x_0$ a **critial point**
+
+> $y_0 = f(x_0)$ is a **critial value**.
+
+> $f' \ne 0 $ f can't backtrack
+
 ## Bookmark
 
-[Session 27: Sketching Graphs I - Polynomials and Rational Functions](https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/pages/unit-2-applications-of-differentiation/part-a-approximation-and-curve-sketching/session-27-sketching-graphs-i-polynomials-and-rational-functions/)
+[Session 28: Sketching Graphs II - General Strategies](https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/pages/unit-2-applications-of-differentiation/part-a-approximation-and-curve-sketching/session-28-sketching-graphs-ii-general-strategies/)
