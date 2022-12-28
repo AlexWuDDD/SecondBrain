@@ -2,7 +2,7 @@
 
 ## Last Update
 
-2022-12-24
+2022-12-28
 
 ## Acronym
 
@@ -114,6 +114,12 @@ IN lsb[8], msb[8], ...
 Add16(a[0..7]=lsb, a[8..15]=msb, b=..., out=...);
 Add16(..., out[0..3]=t1, out[4..15]=t2);
 ```
+
+## ALU
+
+![ALU control bits](./captures/ALU_1.PNG)
+![ALU outout bits](./captures/ALU_2.PNG)
+
 
 ## Bookmark
 
