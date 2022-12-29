@@ -4,5 +4,16 @@
   },
   "java.project.sourcePaths": [
     "."
-  ]
+  ],
+  "java.configuration.updateBuildConfiguration": "automatic",
+  "java.project.referencedLibraries": [
+    "lib/**/*.jar",
+    "javalibs/algs4.jar",
+    "javalibs/hamcrest-core-1.3.jar",
+    "javalibs/jh61b.jar",
+    "javalibs/junit-4.12.jar",
+    "javalibs/stdlib.jar",
+    "javalibs/stdlib-package.jar"
+  ],
+  "java.debug.settings.onBuildFailureProceed": true
 }

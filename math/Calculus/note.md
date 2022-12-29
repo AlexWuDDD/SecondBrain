@@ -2,7 +2,7 @@
 
 ## Last Upate
 
-2022-12-26
+2022-12-29
 
 ## 求导 推导公式
 
@@ -147,6 +147,31 @@ Warning: Do't abandon your precalulus skills and common sense !!!
 
 > $f' \ne 0 $ f can't backtrack
 
+##### General strategy
+
+1. Plot:
+
+    a. discontinuities(especially infinite)
+
+    b. endpoints(or $x\to\pm\infty$)
+
+    c. easy pts(optional)
+
+2. a) solve $f'(x) = 0$
+
+   b) Plot crit pts and values
+
+3. Decide whether $f' < 0$ or $f' > 0$ ineach interval between critial pts/discont (consistent with 1&2)
+
+4. $f'' > 0$ or $f'' < 0$ concave up/down; $f''(x_0) = 0 \Leftrightarrow x_0 inflection pts$
+
+5. combine
+
+### Optimization Problems
+
+KEY TO FINDING MAX & MIN , ONLY NEED TO LOOK AT CRITICAL POINTS AND END POINTS AND POINTS OF DISCONTINUITY
+
+
 ## Bookmark
 
-[Session 28: Sketching Graphs II - General Strategies](https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/pages/unit-2-applications-of-differentiation/part-a-approximation-and-curve-sketching/session-28-sketching-graphs-ii-general-strategies/)
+[Session 31: Related Rates](https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/pages/unit-2-applications-of-differentiation/part-b-optimization-related-rates-and-newtons-method/session-31-related-rates/)

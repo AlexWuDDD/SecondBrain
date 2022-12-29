@@ -2,7 +2,11 @@
 
 ## Last Update
 
-2022-12-26
+2022-12-29
+
+### GRoE
+
+Golden Rule of Equals
 
 ## Bookmark
 

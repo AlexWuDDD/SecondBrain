@@ -2,7 +2,7 @@
 
 ## Last Update
 
-2022-12-27
+2022-12-29
 
 ## Inverse Matrices
 
@@ -92,6 +92,39 @@ $x_1=\begin{bmatrix}0\\1\\3\end{bmatrix}$,$x_2=\begin{bmatrix}2\\4\\0\end{bmatri
 
    ![V2](./capture/subspace7.PNG)
 
+## Column Space and Nullspace
+
+- if $Av=0$, and $Aw=0$, then $A(v+w) = 0$, then $A(12v) = 0$,
+
+### Vector Subspaces
+
+which are subspaces of $R^3=\begin{Bmatrix}\beta_1 \\ \beta_2 \\ \beta_3 \end{Bmatrix}$
+
+1. $\beta_1+\beta_2-\beta_3=0$
+
+> Yes,
+> $\begin{pmatrix}1&1&-1\end{pmatrix}\begin{pmatrix}\beta_1\\\beta_2\\\beta_3\end{pmatrix} = 0$
+
+2. $\beta_1\beta_2-\beta_3=0$
+
+> No
+
+3. $\begin{Bmatrix}\beta_1\\\beta_2\\\beta_3\end{Bmatrix} = \begin{Bmatrix}1\\0\\0\end{Bmatrix}+C_1\begin{Bmatrix}1\\0\\-1\end{Bmatrix}+C_2\begin{Bmatrix}1\\0\\1\end{Bmatrix}$
+
+> Yes
+
+>$\begin{pmatrix}1\\0\\0\end{pmatrix}=\frac{1}{2}\begin{pmatrix}1\\0\\-1\end{pmatrix}+\frac{1}{2}\begin{pmatrix}1\\0\\1\end{pmatrix}$
+
+>$\begin{Bmatrix}\beta_1\\\beta_2\\\beta_3\end{Bmatrix}=(C_1+\frac{1}{2})\begin{Bmatrix}1\\0\\-1\end{Bmatrix}+C_2+(\frac{1}{2})\begin{Bmatrix}1\\0\\1\end{Bmatrix}$
+
+4. $\begin{Bmatrix}\beta_1\\\beta_2\\\beta_3\end{Bmatrix} = \begin{Bmatrix}0\\1\\0\end{Bmatrix}+C_1\begin{Bmatrix}1\\0\\-1\end{Bmatrix}+C_2\begin{Bmatrix}1\\0\\1\end{Bmatrix}$
+
+> can we find
+
+> \begin{Bmatrix}0\\1\\0\end{Bmatrix}+C_1\begin{Bmatrix}1\\0\\-1\end{Bmatrix}+C_2\begin{Bmatrix}1\\0\\1\end{Bmatrix} = 0$
+
+> No
+
 ## Bookmark
 
-[Column Space and Nullspace](https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/pages/ax-b-and-the-four-subspaces/column-space-and-nullspace/)
+[Solving Ax = 0: Pivot Variables, Special Solutions](https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/pages/ax-b-and-the-four-subspaces/solving-ax-0-pivot-variables-special-solutions/)
