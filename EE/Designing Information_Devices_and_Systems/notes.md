@@ -26,4 +26,6 @@ $$
 
 ## Bookmark
 
-[Lecture 3](https://www.bilibili.com/video/BV1wi4y1u7gx/?from=search&seid=6787186405448657855)
+[Discussion 0C](https://inst.eecs.berkeley.edu/~ee16a/su20/discussion/ans0C.pdf)
+[Practice Set 0](./refers/EECS16ACompendiumOfNotesAndPracticeProblems.pdf)
+[Lecture 4](https://www.bilibili.com/video/BV1wi4y1u7gx/?from=search&seid=6787186405448657855)

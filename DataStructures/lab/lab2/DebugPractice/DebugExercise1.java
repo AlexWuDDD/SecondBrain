@@ -5,7 +5,7 @@ package DataStructures.lab.lab2.DebugPractice;
  */
 public class DebugExercise1 {
     public static int divideThenRound(int top, int bottom) {
-        int quotient = top / bottom;
+        float quotient = (float)top / bottom;
         int result = Math.round(quotient);
         return result;
     }
