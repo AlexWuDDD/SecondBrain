@@ -2,7 +2,7 @@
 
 ## Last update
 
-2022-12-27
+2023-1-3
 
 ## Design of Information Devices and System
 
@@ -24,8 +24,15 @@ $$
 
 ![terminology](./captures/Capture1.PNG)
 
+To check for linearity, check for superposition (additivity) and homogeneity (multiplicative
+scaling):
+
+$$
+f(\alpha x_1 + \beta y_1 , \alpha x_2 + \beta y_2) = \alpha f(x_1 + x_2) + \beta f(y_1+y_2) \quad \forall \alpha,\beta,x_1,x_2,y_1,y_2 \in R
+$$
+
+![REF, RREF](./captures/Capture2.PNG)
+
 ## Bookmark
 
-[Discussion 0C](https://inst.eecs.berkeley.edu/~ee16a/su20/discussion/ans0C.pdf)
-[Practice Set 0](./refers/EECS16ACompendiumOfNotesAndPracticeProblems.pdf)
 [Lecture 4](https://www.bilibili.com/video/BV1wi4y1u7gx/?from=search&seid=6787186405448657855)

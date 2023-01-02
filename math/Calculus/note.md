@@ -2,7 +2,7 @@
 
 ## Last Upate
 
-2022-12-29
+2023-1-3
 
 ## 求导 推导公式
 
@@ -171,7 +171,17 @@ Warning: Do't abandon your precalulus skills and common sense !!!
 
 KEY TO FINDING MAX & MIN , ONLY NEED TO LOOK AT CRITICAL POINTS AND END POINTS AND POINTS OF DISCONTINUITY
 
+### Introduction to Related Rates
+
+```text
+The derivative tells us how a change in one variable affects another variable. Related rates problems ask how two different derivatives are related. For example, if we know how fast water is being pumped into a tank we can calculate how fast the water level in the tank is rising. The chain rule is the key to solving such problems.
+```
+
+Surface area of a sphere
+$$
+S=4\pi r^2
+$$
 
 ## Bookmark
 
-[Session 31: Related Rates](https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/pages/unit-2-applications-of-differentiation/part-b-optimization-related-rates-and-newtons-method/session-31-related-rates/)
+[Session 32: Ring on a String](https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/pages/unit-2-applications-of-differentiation/part-b-optimization-related-rates-and-newtons-method/session-32-ring-on-a-string/)
