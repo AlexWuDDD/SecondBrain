@@ -2,7 +2,7 @@
 
 ## Last Update
 
-2022-12-29
+2023-1-3
 
 ## Inverse Matrices
 
@@ -121,10 +121,31 @@ which are subspaces of $R^3=\begin{Bmatrix}\beta_1 \\ \beta_2 \\ \beta_3 \end{Bm
 
 > can we find
 
-> \begin{Bmatrix}0\\1\\0\end{Bmatrix}+C_1\begin{Bmatrix}1\\0\\-1\end{Bmatrix}+C_2\begin{Bmatrix}1\\0\\1\end{Bmatrix} = 0$
+>$\begin{Bmatrix}0\\1\\0\end{Bmatrix}+C_1\begin{Bmatrix}1\\0\\-1\end{Bmatrix}+C_2\begin{Bmatrix}1\\0\\1\end{Bmatrix} = 0$
 
 > No
 
+## Solving  = 0: Pivot Variables, Special Solutions
+
+### Question1
+
+The set S of points $P(x,y,z)$ s.t. $ x-5y+2z = 9$ is a <span style="color: red">**plane**</span> in $R^3$. It is <span style="color: red">**parallel**</span> to the <span style="color: red">**plane**</span>, $S_0$ of $P(x,y,z) s.t.$ x-5y+2z = 0$ 
+
+![AX=0_1](./capture/ax%3D0_1.PNG)
+
+### Question2
+
+All points of S have the form:
+$$
+\begin{bmatrix}x\\y\\z\end{bmatrix} = \begin{bmatrix}?\\0\\0\end{bmatrix} + C_1\begin{bmatrix}?\\1\\0\end{bmatrix} + C_2\begin{bmatrix}?\\0\\1\end{bmatrix}
+$$
+
+![AX=0_2](./capture/ax%3D0_2.PNG)
+![AX=0_3](./capture/ax%3D0_3.PNG)
+![AX=0_4](./capture/ax%3D0_4.PNG)
+![AX=0_5](./capture/ax%3D0_5.PNG)
+![AX=0_6](./capture/ax%3D0_6.PNG)
+
 ## Bookmark
 
-[Solving Ax = 0: Pivot Variables, Special Solutions](https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/pages/ax-b-and-the-four-subspaces/solving-ax-0-pivot-variables-special-solutions/)
+[Solving Ax = b: Row Reduced Form R](https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/pages/ax-b-and-the-four-subspaces/solving-ax-b-row-reduced-form-r/)

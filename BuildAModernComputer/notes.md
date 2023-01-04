@@ -2,7 +2,7 @@
 
 ## Last Update
 
-2022-12-28
+2023-1-4
 
 ## Acronym
 
@@ -120,7 +120,11 @@ Add16(..., out[0..3]=t1, out[4..15]=t2);
 ![ALU control bits](./captures/ALU_1.PNG)
 ![ALU outout bits](./captures/ALU_2.PNG)
 
+## RAM
+
+![C1](./captures/RAM_1.PNG)
+![C2](./captures/RAM_2.PNG)
 
 ## Bookmark
 
-[Next](https://www.coursera.org/learn/build-a-computer/home/week/2)
+[Project 3](https://www.coursera.org/learn/build-a-computer/home/week/3)
