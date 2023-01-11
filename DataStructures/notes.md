@@ -17,4 +17,5 @@ If the nested class never uses any instance variables or methods if the outer cl
 
 ## Bookmark
 
-[DLLists](https://joshhug.gitbooks.io/hug61b/content/chap2/chap23.html)
+[The first part of Project 1, where you implement LinkedListDeque.java.](https://sp19.datastructur.es/materials/proj/proj1a/proj1a)
+[Array](https://joshhug.gitbooks.io/hug61b/content/chap2/chap24.html)

@@ -2,7 +2,7 @@
 
 ## Last update
 
-2023-1-3
+2023-1-11
 
 ## Design of Information Devices and System
 
@@ -33,6 +33,33 @@ $$
 
 ![REF, RREF](./captures/Capture2.PNG)
 
+### Does $A\vec{x} = \vec{b}$ have a solution?
+
+Can we express $\vec{b}$ as a linear combition of the colums of A?
+
+![SAMPLE](./captures/WeChat%20Image_20230111170541.jpg)
+
+> If the columns of A are linearly dependent then $A\vec{x} = \vec{b}$ does not have a unique solution.
+
+![linear dependence](./captures/Capture3.PNG)
+![linear independence](./captures/Capture4.PNG)
+
+### $A\vec{x} = \vec{0}$
+
+- if unique solution => linearly independent
+- if inf solution => linearly dependent
+- if no solution => never happen beacuse $\vec{x} = \vec{0}$ is always a solution.
+
+![state transformation_1](./captures/WeChat%20Image_20230111151259.jpg)
+
+![state transformation_2](./captures/WeChat%20Image_20230111151321.jpg)
+
+![state transformation_3](./captures/WeChat%20Image_20230111153343.jpg)
+
 ## Bookmark
 
-[Lecture 4](https://www.bilibili.com/video/BV1wi4y1u7gx/?from=search&seid=6787186405448657855)
+> need to finish lecture 4&5 related homework
+
+[homework](https://inst.eecs.berkeley.edu/~ee16a/su20/#sims)
+
+[Lecture 6](https://www.bilibili.com/video/BV1wi4y1u7gx/?from=search&seid=6787186405448657855)

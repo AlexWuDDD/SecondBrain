@@ -2,7 +2,7 @@
 
 ## Last Update
 
-2023-1-3
+2023-1-11
 
 ## Inverse Matrices
 
@@ -146,6 +146,10 @@ $$
 ![AX=0_5](./capture/ax%3D0_5.PNG)
 ![AX=0_6](./capture/ax%3D0_6.PNG)
 
+## Solving Ax = b: Row Reduced Form R
+
+![ax=b](./capture/ax%3Db.jpg)
+
 ## Bookmark
 
-[Solving Ax = b: Row Reduced Form R](https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/pages/ax-b-and-the-four-subspaces/solving-ax-b-row-reduced-form-r/)
+[Independence, Basis and Dimension](https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/pages/ax-b-and-the-four-subspaces/independence-basis-and-dimension/)

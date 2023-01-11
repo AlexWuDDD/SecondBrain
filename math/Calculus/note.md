@@ -2,7 +2,7 @@
 
 ## Last Upate
 
-2023-1-3
+2023-1-10
 
 ## 求导 推导公式
 
@@ -182,6 +182,28 @@ $$
 S=4\pi r^2
 $$
 
+### Ring on a String
+
+> where does the ring settle down?
+![Ring On A String](./captures/RingOnAString.PNG)
+![Solution](./captures/RingOnAStringSolution.jpg)
+
+### Newton's Method
+
+>Newton’s method uses linear approximation to make successively better guesses at the solution to an equation. Starting from a good guess, Newton’s method can be extremely accurate and efficient. Occasionally it doesn’t work at all.
+
+$$
+x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)}
+$$
+
+work well:
+
+- if $|f'(x)|$ not small
+- $|f''(x)|$ not too big
+- $x_0$ starts nearby x
+
+## Mean Value Throrem
+
 ## Bookmark
 
-[Session 32: Ring on a String](https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/pages/unit-2-applications-of-differentiation/part-b-optimization-related-rates-and-newtons-method/session-32-ring-on-a-string/)
+[Session 34: Introduction to the Mean Value Theorem](https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/pages/unit-2-applications-of-differentiation/part-c-mean-value-theorem-antiderivatives-and-differential-equations/session-34-introduction-to-the-mean-value-theorem/)
