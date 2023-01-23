@@ -1,9 +1,11 @@
 import React, { Fragment } from "react";
+import './style.css'
+import TodoItem from "./TodoItem";
 
 function TodoList() {
 
   const [inputValue, setInputvalue] = React.useState("");
-  const [todolist, setTodolist] = React.useState(["Learn English", "Learn React"]);
+  const [todolist, setTodolist] = React.useState([]);
 
   const handleChange = e =>{
     setInputvalue(e.target.value);
@@ -17,14 +19,17 @@ function TodoList() {
   }
 
   const handleListItemDelete = (index)=>{
-    console.log(index);
     setTodolist([...todolist.slice(0, index), ...todolist.slice(index+1)])
   }
 
   return (
     <Fragment>
       <div>
-        <input 
+        <label htmlFor="insertarea">输入内容</label>
+        {/* 下面是一个input框 */}
+        <input
+          id="insertarea"
+          className='input' 
           value={inputValue} 
           onChange={handleChange}
         />
@@ -34,12 +39,13 @@ function TodoList() {
         {
           todolist.map((item, index)=>{
             return (
-              <li 
-                key={index} 
-                onClick={()=>handleListItemDelete(index)}
-              >
-                {item}
-              </li>
+              <div>
+                <TodoItem
+                  content = {item}
+                  index = {index}
+                  handleItemDelete = {handleListItemDelete}
+                />
+              </div>
             )
           })
         }
