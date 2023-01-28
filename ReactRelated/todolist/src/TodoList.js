@@ -1,13 +1,14 @@
 import React, { Fragment } from "react";
 import './style.css'
 import TodoItem from "./TodoItem";
+import Test from "./Test";
 
 function TodoList() {
 
   const [inputValue, setInputvalue] = React.useState("");
   const [todolist, setTodolist] = React.useState([]);
 
-  const handleChange = e =>{
+  const handleChange = (e) =>{
     setInputvalue(e.target.value);
   }
 
@@ -22,6 +23,20 @@ function TodoList() {
     setTodolist([...todolist.slice(0, index), ...todolist.slice(index+1)])
   }
 
+  const getTodoItem = ()=>{
+    return todolist.map((item, index)=>{
+      return (
+        <TodoItem
+          key = {index}
+          content = {item}
+          index = {index}
+          handleItemDelete = {handleListItemDelete}
+        />
+      )
+    })
+  }
+
+  // console.log("todolist");
   return (
     <Fragment>
       <div>
@@ -36,20 +51,9 @@ function TodoList() {
         <button onClick={handleSubmit}>提交</button>
       </div>
       <ul>
-        {
-          todolist.map((item, index)=>{
-            return (
-              <div>
-                <TodoItem
-                  content = {item}
-                  index = {index}
-                  handleItemDelete = {handleListItemDelete}
-                />
-              </div>
-            )
-          })
-        }
+        { getTodoItem() }
       </ul>
+      <Test content={inputValue}/>
     </Fragment>
   )
 }
