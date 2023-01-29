@@ -58,8 +58,4 @@ Can we express $\vec{b}$ as a linear combition of the colums of A?
 
 ## Bookmark
 
-> need to finish lecture 4&5 related homework
-
-[homework](https://inst.eecs.berkeley.edu/~ee16a/su20/#sims)
-
 [Lecture 6](https://www.bilibili.com/video/BV1wi4y1u7gx/?from=search&seid=6787186405448657855)
