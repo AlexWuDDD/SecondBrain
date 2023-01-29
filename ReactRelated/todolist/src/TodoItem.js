@@ -1,14 +1,20 @@
-import { Fragment } from "react";
+import React, { Fragment } from "react";
 import PropTypes from 'prop-types';
+
+// shouldComponentUpdate() replacement
+function areEqual(pervProps, nextProps){
+  return pervProps.content === nextProps.content;
+}
 
 function TodoItem(props) {
 
   const {test, content, index, handleItemDelete} = props;
 
   const handleClick = ()=>{
-    handleItemDelete(index);
-  }
+    handleItemDelete(index)
+  };
 
+  console.log("child render");
   return (
     <Fragment>
       <div
@@ -31,4 +37,4 @@ TodoItem.defaultProps = {
   test: 'hello world'
 }
 
-export default TodoItem;
+export default React.memo(TodoItem, areEqual)

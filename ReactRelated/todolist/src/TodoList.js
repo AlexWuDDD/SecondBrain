@@ -1,7 +1,6 @@
 import React, { Fragment } from "react";
 import './style.css'
 import TodoItem from "./TodoItem";
-import Test from "./Test";
 
 function TodoList() {
 
@@ -22,6 +21,7 @@ function TodoList() {
   const handleListItemDelete = (index)=>{
     setTodolist([...todolist.slice(0, index), ...todolist.slice(index+1)])
   }
+  
 
   const getTodoItem = ()=>{
     return todolist.map((item, index)=>{
@@ -53,7 +53,6 @@ function TodoList() {
       <ul>
         { getTodoItem() }
       </ul>
-      <Test content={inputValue}/>
     </Fragment>
   )
 }

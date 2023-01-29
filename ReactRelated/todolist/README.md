@@ -69,3 +69,92 @@ setState是异步操作
 
 > **提升React性能的关键是保证虚拟DOM节点的key值不变**
 > 所以能不用index做key值，就不要用index做key值
+
+## React 生命周期
+
+生命周期函数指在某一时刻组件会自动调用执行的函数
+
+![life cycle 1](./lifeCycle1.PNG)
+
+- componentWillMount: 在组件即将被挂到页面的时刻自动执行
+- componentDidiMount: 组件被挂在到页面之后，自动被执行
+
+- shouldComponentUpdate: 组件被更新之前，他会自动被执行
+- componentWillUpdate: 组件被更新之前，shouldComponentUpdate之后（取决于返回的是true/false），会自动被执行
+- componentDidUpdate: 组件被更新之后，会被自动执行
+
+- componentWillReceiveProps:
+    1. 当一个组件要从父组件接受参数
+    2. 只要父组件的render函数被执行了，子组件的这个生命周期函数就会被执行
+    3. 如果这个组件第一次存在于父组件中，不会被执行
+    4. 如果这个组件之前已经存在于父组件中，才会执行
+
+- componentWillUnmount: 当组件即将被从页面中剔除的时候，会被执行
+
+### 使用场景
+
+### useEffect
+
+```js
+useEffect(() => {
+  // This runs after every render
+});
+
+useEffect(() => {
+  // This runs only on mount (when the component appears)
+}, []);
+
+useEffect(() => {
+  // This runs on mount *and also* if either a or b have changed since the last render
+}, [a, b]);
+
+useEffect(() => {
+    const connection = createConnection();
+    connection.connect();
+    return () => {
+      connection.disconnect();
+    };
+  }, []);
+```
+
+**In React, rendering should be a pure calculation of JSX and should not contain side effects like modifying the DOM.**
+
+**Effects should usually synchronize your components with an external system. If there’s no external system and you only want to adjust some state based on other state, you might not need an Effect.**
+
+#### Fetching data
+
+```js
+useEffect(() => {
+  let ignore = false;
+
+  async function startFetching() {
+    const json = await fetchTodos(userId);
+    if (!ignore) {
+      setTodos(json);
+    }
+  }
+
+  startFetching();
+
+  return () => {
+    ignore = true;
+  };
+}, [userId]);
+```
+
+You can’t “undo” a network request that already happened, but your cleanup function should ensure that the fetch that’s not relevant anymore does not keep affecting your application. 
+
+#### Not an Effect: Initializing the application
+
+Some logic should only run once when the application starts. You can put it outside your components:
+
+```js
+if (typeof window !== 'undefined') { // Check if we're running in the browser.
+  checkAuthToken();
+  loadDataFromLocalStorage();
+}
+
+function App() {
+  // ...
+}
+```
