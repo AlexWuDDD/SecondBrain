@@ -127,4 +127,5 @@ Add16(..., out[0..3]=t1, out[4..15]=t2);
 
 ## Bookmark
 
+Blocked in RAM64
 [Project 3](https://www.coursera.org/learn/build-a-computer/home/week/3)
