@@ -29,8 +29,19 @@ A "tech startup" is an organization with the following characteristics:
 
 Autonomy, mastery, and purpose are three of the most powerful human motivatiors.
 
+Only start a company if you're willing to spend the next decade of your life working on it.
+
+All new ideas are just the result of combining existing ideas.
+>A better metaphor is to think of new idea as turing on a light bulb to illumunate something that was already there.
+
+Creativity boils down to three stages:
+
+1. Copy
+2. Transform
+3. Combine
+
 
 
 ## Bookmark
 
-2023-1-28 Hello, Startup Page 46
+2023-1-28 Hello, Startup Page 57

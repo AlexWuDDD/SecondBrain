@@ -31,8 +31,6 @@ Two ways to copy arrays:
   System.arraycopy(b, 0, x, 3, 2)
   ```
 
-
-
 ## Bookmark
 
-[A new way](https://joshhug.gitbooks.io/hug61b/content/chap3/chap31.html)
+[The Problem](https://joshhug.gitbooks.io/hug61b/content/chap4/chap41.html)
