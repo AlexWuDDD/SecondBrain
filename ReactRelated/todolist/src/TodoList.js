@@ -1,6 +1,9 @@
-import React, { Fragment } from "react";
+import axios from "axios";
+import React, { Fragment, useEffect } from "react";
 import './style.css'
 import TodoItem from "./TodoItem";
+
+import './mock/mockapi';
 
 function TodoList() {
 
@@ -24,7 +27,7 @@ function TodoList() {
   
 
   const getTodoItem = ()=>{
-    return todolist.map((item, index)=>{
+    return Array.isArray(todolist)?todolist.map((item, index)=>{
       return (
         <TodoItem
           key = {index}
@@ -33,10 +36,31 @@ function TodoList() {
           handleItemDelete = {handleListItemDelete}
         />
       )
-    })
+    }):[]
   }
 
-  // console.log("todolist");
+  useEffect(()=>{
+    let ignore = false;
+    const fetchData = async () => {
+      try{
+        const result = await axios.get('/api/todolist');
+        if(!ignore){
+          setTodolist(()=>result.data.list);
+          console.log(result);
+        }
+      }
+      catch(error){
+        console.log(error)
+      }
+    }
+
+    fetchData();
+
+    return ()=>{
+      ignore = true;
+    }
+  }, [])
+
   return (
     <Fragment>
       <div>

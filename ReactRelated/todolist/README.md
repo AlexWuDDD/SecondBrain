@@ -158,3 +158,7 @@ function App() {
   // ...
 }
 ```
+
+```shell
+npm install mockjs --save-dev
+```

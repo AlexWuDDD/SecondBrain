@@ -2,9 +2,9 @@ import React, { Fragment } from "react";
 import PropTypes from 'prop-types';
 
 // shouldComponentUpdate() replacement
-function areEqual(pervProps, nextProps){
-  return pervProps.content === nextProps.content;
-}
+// function areEqual(pervProps, nextProps){
+//   return (pervProps.content === nextProps.content);
+// }
 
 function TodoItem(props) {
 
@@ -14,7 +14,7 @@ function TodoItem(props) {
     handleItemDelete(index)
   };
 
-  console.log("child render");
+  // console.log("child render");
   return (
     <Fragment>
       <div
@@ -29,7 +29,7 @@ function TodoItem(props) {
 TodoItem.propTypes = {
   test: PropTypes.string.isRequired,
   content: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  index: PropTypes.number.isRequired,
+  index: PropTypes.number,
   handleItemDelete: PropTypes.func,
 }
 
@@ -37,4 +37,5 @@ TodoItem.defaultProps = {
   test: 'hello world'
 }
 
-export default React.memo(TodoItem, areEqual)
+// export default React.memo(TodoItem, areEqual);
+export default TodoItem;
