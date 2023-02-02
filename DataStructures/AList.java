@@ -2,7 +2,7 @@ package DataStructures;
 
 import java.lang.reflect.Array;
 
-public class AList<T> {
+public class AList<T> implements List61B<T>{
 
   private T[] arr;
   private Class<T[]> myClazz;
@@ -90,5 +90,23 @@ public class AList<T> {
       System.out.println(arr.get(i));
     }
 
+  }
+
+  @Override
+  public void addFirst(T x) {
+    // TODO Auto-generated method stub
+    
+  }
+
+  @Override
+  public T getFirst() {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
+  @Override
+  public void insert(T x, int position) {
+    // TODO Auto-generated method stub
+    
   }
 }

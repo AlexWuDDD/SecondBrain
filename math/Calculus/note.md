@@ -2,7 +2,7 @@
 
 ## Last Upate
 
-2023-1-10
+2023-2-2
 
 ## 求导 推导公式
 
@@ -202,8 +202,8 @@ work well:
 - $|f''(x)|$ not too big
 - $x_0$ starts nearby x
 
-## Mean Value Throrem
+## Mean Value Theorem
 
 ## Bookmark
 
-[Session 34: Introduction to the Mean Value Theorem](https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/pages/unit-2-applications-of-differentiation/part-c-mean-value-theorem-antiderivatives-and-differential-equations/session-34-introduction-to-the-mean-value-theorem/)
+[Session 36: Differentials](https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/pages/unit-2-applications-of-differentiation/part-c-mean-value-theorem-antiderivatives-and-differential-equations/session-36-differentials/)

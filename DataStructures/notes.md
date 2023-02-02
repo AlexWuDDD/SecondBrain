@@ -2,7 +2,7 @@
 
 ## Last Update
 
-2023-1-19
+2023-2-2
 
 ### GRoE
 
@@ -33,4 +33,4 @@ Two ways to copy arrays:
 
 ## Bookmark
 
-[The Problem](https://joshhug.gitbooks.io/hug61b/content/chap4/chap41.html)
+[Extends](https://joshhug.gitbooks.io/hug61b/content/chap4/chap42.html)

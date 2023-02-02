@@ -3,7 +3,7 @@ package DataStructures;
  * An SLList is a list of integers, which hides the terrible
  * truth of the nakedness within
  */
-public class SLList<T>{
+public class SLList<T> implements List61B<T>{
 
   private static class StuffNode<T> {
     public T item;
@@ -71,6 +71,15 @@ public class SLList<T>{
     return size;
   }
 
+  public T get(int index){
+    StuffNode<T> cur = sentinel;
+    index = index+1;
+    for(int i = 0 ; i < index; ++i){
+      cur = cur.next;
+    }
+    return cur.item;
+  }
+
   public static void main(String[] args) {
     SLList<Integer> L1 = new SLList<>(10);
     L1.addLast(30);
@@ -86,5 +95,23 @@ public class SLList<T>{
     System.out.println(L2.getFirst());
     System.out.println(L2.size());
     System.out.println(L2.getFirst());
+  }
+
+  @Override
+  public T getLast() {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
+  @Override
+  public T removeLast() {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
+  @Override
+  public void insert(T x, int position) {
+    // TODO Auto-generated method stub
+    
   }
 }
