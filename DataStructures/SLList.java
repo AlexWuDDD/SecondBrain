@@ -105,8 +105,14 @@ public class SLList<T> implements List61B<T>{
 
   @Override
   public T removeLast() {
-    // TODO Auto-generated method stub
-    return null;
+    StuffNode<T> cur = sentinel;
+    for(int i = 0; i < size-1; ++i){
+      cur = cur.next;
+    }
+    T ret = cur.next.item;
+    cur.next = null;
+    --size;
+    return ret;
   }
 
   @Override

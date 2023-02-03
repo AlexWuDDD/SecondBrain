@@ -2,7 +2,7 @@
 
 ## Last Update
 
-2023-2-2
+2023-2-3
 
 ### GRoE
 
@@ -33,4 +33,4 @@ Two ways to copy arrays:
 
 ## Bookmark
 
-[Extends](https://joshhug.gitbooks.io/hug61b/content/chap4/chap42.html)
+[Subtype Polymorphism](https://joshhug.gitbooks.io/hug61b/content/chap4/chap43.html)
