@@ -1,3 +1,4 @@
+
 /* 过渡动画 */
 .show{
   animation: show-item 2s ease-in forwards/*保存动画最后一帧的样子*/;
