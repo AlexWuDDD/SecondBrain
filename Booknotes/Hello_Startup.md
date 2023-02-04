@@ -40,8 +40,12 @@ Creativity boils down to three stages:
 2. Transform
 3. Combine
 
+It is important to validate that the problem you've identified is big enough to warrant building a startup around it:
 
+- Frequency: Does the problem you're solving occur often?
+- Density: Do a lot of people face this problem?
+- Pain: Is the problem just an annoyance, or something you absolutely must resolve?
 
 ## Bookmark
 
-2023-1-28 Hello, Startup Page 81
+2023-1-28 Hello, Startup Page 95

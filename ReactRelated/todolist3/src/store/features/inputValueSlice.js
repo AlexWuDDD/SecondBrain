@@ -5,9 +5,20 @@ export const inputValueSlice = createSlice({
   initialState: {
     value: null,
   },
-  reducers:{}
+  reducers:{
+    setInputValue: (state, action)=>{
+      state.value = action.payload;
+    }
+  }
 })
 
-export const {} = inputValueSlice.actions
+export const setInputValueAsync = input => dispatch => {
+  setTimeout(()=>{
+    dispatch(setInputValue(input))
+  }, 3000)
+}
+
+
+export const {setInputValue} = inputValueSlice.actions
 export default inputValueSlice.reducer
 export const selectInputValue = state => state.inputValue.value

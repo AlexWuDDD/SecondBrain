@@ -1,36 +1,46 @@
-import React from 'react'
-import 'antd/dist/reset.css';
-import { Button, Input, List} from 'antd';
+import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
-import {selectInputValue} from './store/features/inputValueSlice'
-import { selectList } from './store/features/listSlice';
+import {selectInputValue, setInputValue, setInputValueAsync} from './store/features/inputValueSlice'
+import { selectList, addListItem, deleteListItem, fetchTodolist} from './store/features/listSlice';
+import TodoListUI from './TodoListUI';
 
 function TodoList() {
   const inputValue = useSelector(selectInputValue);
   const list = useSelector(selectList);
+  const dispatch = useDispatch();
+
+  const handleInputChange = (e)=>{
+    console.log(e.target.value)
+    // dispatch(setInputValue(e.target.value));
+    dispatch(setInputValueAsync(e.target.value));
+  }
+
+  const handleSubmit = ()=>{
+    dispatch(addListItem(inputValue));
+    dispatch(setInputValue(""));
+  }
+
+  const handleDeleteListItem = (index)=>{
+    dispatch(deleteListItem(index));
+  }
+
+  useEffect(()=>{
+    let ignore = false;
+    dispatch(fetchTodolist(ignore));
+    return ()=>{
+      ignore = true;
+    }
+  }, [dispatch])
 
   return (
-    <div style={{marginTop: '10px', marginLeft: '10px'}}>
-      <div>
-        <Input 
-          placeholder='todo info' 
-          style={{width: '300px', marginRight: '10px'}}
-          value={inputValue}
-        ></Input>
-        <Button type='primary'>提交</Button>
-      </div>
-      <List
-        style={{marginTop: '10px', width: '300px'}}
-        bordered
-        dataSource={list}
-        renderItem={(item) => (
-          <List.Item>
-            {item}
-          </List.Item>
-        )}
-      />
-    </div>
+    <TodoListUI 
+      inputValue={inputValue}
+      handleInputChange={handleInputChange}
+      list={list}
+      handleSubmit={handleSubmit}
+      handleDeleteListItem={handleDeleteListItem}
 
+    />
   )
 }
 
