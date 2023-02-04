@@ -2,7 +2,7 @@
 
 ## Last Update
 
-2023-2-3
+2023-2-4
 
 ### GRoE
 
@@ -33,4 +33,4 @@ Two ways to copy arrays:
 
 ## Bookmark
 
-[Subtype Polymorphism](https://joshhug.gitbooks.io/hug61b/content/chap4/chap43.html)
+[Abstract Data Types (ADTS)](https://joshhug.gitbooks.io/hug61b/content/chap4/chap44.html)
