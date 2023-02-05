@@ -2,7 +2,7 @@
 
 ## Last Update
 
-2023-2-4
+2023-2-5
 
 ### GRoE
 
@@ -31,6 +31,14 @@ Two ways to copy arrays:
   System.arraycopy(b, 0, x, 3, 2)
   ```
 
+### Type upper bounds
+
+You might be wondering, why does it "extend" comparable and not "implement"? Comparable is an interface after all.
+
+Well, it turns out, "extends" in this context has a different meaning than in the polymorphism context.
+
+When we say that the Dog class extends the Animal class, we are saying that Dogs can do anything that animals can do and more! We are giving Dog the abilities of an animal. When we say that K extends Comparable, we are simply stating a fact. We aren't giving K the abilities of a Comparable, we are just saying that K must be Comparable. This different use of extends is called type upper bounding. Confusing? That's okay, it is confusing. Just remember, in the context of inheritance, the extends keyword is active in giving the subclass the abilities of the superclass. You can think of it as a fairy Godmother: she sees your needs and helps you out with some of her fairy magic. On the other hand, in the context of generics, extends simply states a fact: You must be a subclass of whatever you're extending. When used with generics (like in generic method headers), extends imposes a constraint rather than grants new abilities. It's akin to a fortune teller, who just tells you something without doing much about it.
+
 ## Bookmark
 
-[Abstract Data Types (ADTS)](https://joshhug.gitbooks.io/hug61b/content/chap4/chap44.html)
+[Lists, Sets, ArraySet](https://joshhug.gitbooks.io/hug61b/content/chap6/chap61.html)
