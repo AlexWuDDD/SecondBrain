@@ -2,7 +2,7 @@
 
 ## Last Update
 
-2023-2-5
+2023-2-6
 
 ### GRoE
 
@@ -41,4 +41,4 @@ When we say that the Dog class extends the Animal class, we are saying that Dogs
 
 ## Bookmark
 
-[Lists, Sets, ArraySet](https://joshhug.gitbooks.io/hug61b/content/chap6/chap61.html)
+[Packages and JAR files](https://joshhug.gitbooks.io/hug61b/content/chap7/chap71.html)
