@@ -2,7 +2,7 @@
 
 ## Last Update
 
-2023-2-10
+2023-2-11
 
 ### GRoE
 
@@ -59,4 +59,4 @@ $1+2+4+8+...+Q=2Q-1=\theta(Q)$(Sum of First Powers of 2)
 
 ## Bookmark
 
-[Packages and JAR files](https://joshhug.gitbooks.io/hug61b/content/chap7/chap71.html)
+[Omega and Amortized Analysis](https://joshhug.gitbooks.io/hug61b/content/chap8/chap84.html)
