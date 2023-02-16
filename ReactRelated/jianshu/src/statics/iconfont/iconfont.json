@@ -6,6 +6,13 @@
   "description": "这是简述iconfont仓库",
   "glyphs": [
     {
+      "icon_id": "401109",
+      "name": "spinner5",
+      "font_class": "spinner5",
+      "unicode": "e857",
+      "unicode_decimal": 59479
+    },
+    {
       "icon_id": "1174",
       "name": "用研",
       "font_class": "yongyan",

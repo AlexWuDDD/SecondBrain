@@ -1,15 +1,30 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { CSSTransition } from 'react-transition-group';
 // import PropTypes from 'prop-types';
 
-import {HeaderWrapper, Logo, Nav, NavItem, NavSearch, Addition, Button, SearchWarpper} from "./style.js";
+import {HeaderWrapper, Logo, 
+  Nav, NavItem, NavSearch, 
+  Addition, Button, 
+  SearchWarpper, SearchInfo, SearchInfoTitle, SearchInfoSwitch, 
+  SearchInfoItem, SearchInfoList
 
-import { setSearchFocused, selectSearchFocused } from './features/headerSlice.js';
+} from "./style.js";
+
+import { setSearchFocused, selectSearchFocused, 
+  fetchSearchList, selectSearchList,
+  selectSearchPage,
+  setSearchListMouseIn, selectSearchListMouseIn,
+  changeSerachPage,
+} from './features/headerSlice.js';
 
 function Header(props) {
 
   const searchFocused = useSelector(selectSearchFocused);
+  const searchList = useSelector(selectSearchList);
+  const searchPage = useSelector(selectSearchPage);
+  const searchListMouseIn = useSelector(selectSearchListMouseIn);
+
   const dispatch = useDispatch();
 
   const nodeRef = useRef(null);
@@ -21,6 +36,73 @@ function Header(props) {
   const handleSerachInputBlur = ()=>{
     dispatch(setSearchFocused(false));
   };
+
+  useEffect(()=>{
+    let ignore = false;
+    if(searchFocused){
+      dispatch(fetchSearchList(ignore));
+      return ()=>{
+        ignore = true;
+      }
+    }
+  }, [searchFocused, dispatch])
+
+  const spinIconRef = useRef(null);
+
+  const getListArea = ()=>{
+
+    const pageList = []
+
+    if(searchList.length > 0){
+      for(let i = (searchPage-1) * 10; i < searchPage * 10; ++i){
+        pageList.push(
+          <SearchInfoItem key={searchList[i]}>{searchList[i]}</SearchInfoItem>
+        );
+      }
+    }
+
+    if(searchFocused || searchListMouseIn){
+      return (
+        <SearchInfo 
+          onMouseEnter={handleMouseEnterInSearchList}
+          onMouseLeave={handleMouseLeaveInSearchList}
+        >
+          <SearchInfoTitle>
+            热门搜索
+            <SearchInfoSwitch onClick={handleSearchPageChange}>
+              <span ref={spinIconRef} className="iconfont spin">&#xe857;</span>
+              换一批
+            </SearchInfoSwitch>
+          </SearchInfoTitle>
+          <SearchInfoList>
+            {pageList}
+          </SearchInfoList>
+        </SearchInfo>
+      );
+    }
+    return null;
+  }
+
+  const handleMouseEnterInSearchList = ()=>{
+    dispatch(setSearchListMouseIn(true));
+  }
+
+  const handleMouseLeaveInSearchList = ()=>{
+    dispatch(setSearchListMouseIn(false));
+  }
+
+  const handleSearchPageChange = ()=>{
+    let originAngle = spinIconRef.current.style.transform.replace(/[^0-9]/ig, '');
+    if(originAngle){
+      originAngle = parseInt(originAngle, 10);
+    }
+    else{
+      originAngle = 0;
+    }
+    // spinIconRef.current.style.transform = "rotate(360deg)";
+    spinIconRef.current.style.transform = "rotate(" + (originAngle + 360) + "deg)";
+    dispatch(changeSerachPage());    
+  }
 
   return (
     <HeaderWrapper>
@@ -42,7 +124,8 @@ function Header(props) {
               onBlur={handleSerachInputBlur}
             ></NavSearch>
           </CSSTransition>
-          <span className={searchFocused?"focused iconfont":"iconfont"}>&#xe662;</span>
+          <span className={searchFocused?"focused iconfont zoom":"iconfont zoom"}>&#xe662;</span>
+          {getListArea()}
         </SearchWarpper>
         <NavItem className='right'>登录</NavItem>
         <NavItem className='right'>
