@@ -6,11 +6,15 @@ export const homeSlice = createSlice({
   name: 'home',
   initialState:{
     topicList: [],
+    showScroll: false,
   },
 
   reducers:{
     setTopicList: (state, action)=>{
       state.topicList = action.payload;
+    },
+    setShowScroll: (state, action)=>{
+      state.showScroll = action.payload;
     }
   }
 });
@@ -32,4 +36,5 @@ export const fetchtopicList = (ignore)=>{
 
 export default homeSlice.reducer;
 export const selectTopicList = state => state.home.topicList;
-export const { setTopicList } = homeSlice.actions;
+export const selectShowScroll = state => state.home.showScroll;
+export const { setTopicList, setShowScroll } = homeSlice.actions;

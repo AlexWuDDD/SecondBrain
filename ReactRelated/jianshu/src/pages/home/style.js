@@ -50,3 +50,75 @@ export const TopicItem = styled.span`
     margin-right: 10px;
   }
 `
+
+export const ListWrappoer = styled.div`
+  width: 625px;
+`
+
+export const ListItem = styled.div`
+  overflow: hidden;
+  .pic{
+    float: right;
+    width:125px;
+    height: 100px;
+    display: inline-block;
+  }
+  padding-bottom: 10px;
+  border-bottom: 2px solid #dcdcdc;
+`
+
+export const ListItemTitle = styled.div`
+  width: 500px;
+  float: left;
+  line-height: 27px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+`
+
+export const ListItemInfo = styled.div`
+  font-height: 24x;
+  font-size: 13px;
+  color: #999;
+`
+
+export const ListItemIcon = styled.div`
+`
+
+export const LoadMore = styled.div`
+  margin-top: 20px;
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  background: #a5a5a5;
+  border-radius: 20px;
+  color: #fff;
+  text-align: center;
+  cursor: pointer;
+`
+
+export const RecommendWrapper = styled.div`
+  margin: 30px 0;
+  width: 280px;
+`
+
+export const RecommendItem = styled.div`
+  width: 280px;
+  height: 40px;
+  background: url(${(props)=>props.imgUrl});
+  background-size: contain;
+  border-radius: 5px;
+`
+
+export const BackTop = styled.div`
+  position: fixed;
+  right: 100px;
+  bottom: 100px;
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+  border: 1px solid #ccc;
+  font-size: 12px;
+  cursor: pointer;
+`
