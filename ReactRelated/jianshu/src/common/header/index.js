@@ -18,6 +18,10 @@ import { setSearchFocused, selectSearchFocused,
   changeSerachPage,
 } from './features/headerSlice.js';
 
+import { selectIsLoginned, setIsLoginned } from '../../pages/login/features/loginSlice.js';
+
+import { Link, redirect } from 'react-router-dom';
+
 function Header(props) {
 
   const searchFocused = useSelector(selectSearchFocused);
@@ -25,9 +29,12 @@ function Header(props) {
   const searchPage = useSelector(selectSearchPage);
   const searchListMouseIn = useSelector(selectSearchListMouseIn);
 
+  const isLoginned = useSelector(selectIsLoginned);
+
   const dispatch = useDispatch();
 
   const nodeRef = useRef(null);
+
 
   const handleSearchInputFocus = ()=>{
     dispatch(setSearchFocused(true));
@@ -104,9 +111,14 @@ function Header(props) {
     dispatch(changeSerachPage());    
   }
 
+  const handleExit = ()=>{
+    dispatch(setIsLoginned(false));
+    redirect("/login");
+  }
+
   return (
     <HeaderWrapper>
-      <Logo/>
+      <Link to='/'><Logo/></Link>
       <Nav>
         <NavItem className='left active'>首页</NavItem>
         <NavItem className='left'>下载App</NavItem>
@@ -127,16 +139,22 @@ function Header(props) {
           <span className={searchFocused?"focused iconfont zoom":"iconfont zoom"}>&#xe662;</span>
           {getListArea()}
         </SearchWarpper>
-        <NavItem className='right'>登录</NavItem>
+        {
+          isLoginned?
+          <NavItem className='right' onClick={handleExit}>退出</NavItem>:
+          <Link to='/login'><NavItem className='right'>登陆</NavItem></Link>
+        }
         <NavItem className='right'>
           <span className="iconfont">&#xe636;</span>
         </NavItem>
       </Nav>
       <Addition>
-        <Button className="writing">
-          <span className="iconfont">&#xe600;</span>
-          写文章
-        </Button>
+        <Link to="/write">
+          <Button className="writing">
+            <span className="iconfont">&#xe600;</span>
+            写文章
+          </Button>
+        </Link>
         <Button className='reg'>注册</Button>
       </Addition>
     </HeaderWrapper>

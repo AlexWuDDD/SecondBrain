@@ -22,7 +22,8 @@ function List() {
     <ListWrappoer>
       <ListItem>
         <ListItemTitle>
-          <Link to="/detail">落日余晖中，终将迎来新的一天</Link>
+          <Link to="/detail/5">落日余晖中，终将迎来新的一天</Link>
+          {/* <Link to="/detail?id=5">落日余晖中，终将迎来新的一天</Link> */}
         </ListItemTitle>
         <img className='pic' src={sunset} alt=''></img>
         <ListItemInfo>

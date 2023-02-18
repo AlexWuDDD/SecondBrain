@@ -58,3 +58,11 @@ export const apitopiclist =  Mock.mock("/api/topiclist", {
     },      
   ]
 })
+
+
+export const apilogin =  Mock.mock(RegExp("/api/login.*"), 'get', (options)=>{
+  const re = RegExp("/api/login\\?username=(.*)\\&password=(.*)")
+  options.url.match(re);
+  return {'success': true}
+
+} );
