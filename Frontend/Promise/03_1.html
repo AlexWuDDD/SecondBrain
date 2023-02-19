@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    let mypro = new Promise((resolve, reject)=>{
+      //如果销售额达到了,兑现承诺
+      //resolve();
+      //如果销售额没达到了，不兑现承诺
+      //reject();
+      setTimeout(()=>{
+
+        //resolve();
+        reject();
+      }, 1000);
+    });
+    console.log(mypro);
+    mypro.then(()=>{
+      console.log("发奖金");
+      console.log(mypro);
+    }, ()=>{
+      console.log("不发奖金1");
+      console.log(mypro);
+    }).catch(()=>{
+      console.log("不发奖金2");
+      console.log(mypro);
+    })
+
+    //到不发奖金1后就不走了，为什么呢？书接上回
+    //因为Promise从pending变成rejected之后，就凝固了，不会再走了。
+
+    //如果把resolve和reject都执行，会发现Promise从pending变成fulfilled后就凝固了。
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //Promise 构造函数
+    //接受参数 excutor 执行器，是一个函数
+    /*
+    let mypro = new Promise((resolve, reject)=>{
+      //如果销售额达到了,兑现承诺
+      //resolve();
+      //如果销售额没达到了，不兑现承诺
+      //reject();
+      setTimeout(()=>{
+        //reject();
+        resolve();
+      }, 1000);
+    });
+    console.log(mypro);
+    */
+    //基于Promise封装的共识,如果像我们之前的回调函数的封装，不同的人的封装想法是不一样的，小明可能会把成功放前，失败放后，而小李可能把失败放前，成功放后。
+    //而Promise则通过加入ES6的标准后，以共识的方式，规定了成功在前，失败在后。
+    //第一个参数一定是成功，第二个参数一定是失败
+    /*
+    mypro.then(()=>{
+      console.log("发奖金");
+    }, ()=>{
+      console.log("不发奖金");
+    })
+    */
+    //如果如上让你感觉和传统的回调函数方式并没有什么区别的话
+    //我们还可以这么用
+    /*
+    mypro.catch(()=>{
+      console.log("不发奖金");
+    });
+    */
+    //如果此时在执行器里调用resolve的话，你会发现并没有调用catch中传入的函数
+    //catch只管reject的时候的调用。
+
+    //.then 既有成功，也有失败
+    //.catch 只管拒绝承诺时候的调用
+    //第三章写法
+    /*
+    mypro.then(()=>{
+      console.log("发奖金");
+    }).catch(()=>{
+      console.log("不发奖金");
+    })
+    */
+    //这种写法，就会让我们的成功或者失败函数的传入变得非常的明朗
+    //也就是我们所说的 指定回调函数方式更灵活易懂。
+    //也就是说在.then中输入的回调函数就一定是在兑现承诺的时候被调用，而在.catch中输入的回调函数就一定实在拒绝承诺的时候被调用
+    //这样是不是很清晰
+    //接下来，我们酒吧之前用传统方式封装的函数，用Promise来封装一下
+    //见02_2.html
+    //最后, 如果在.then中把错误处理的函数重复的传进去，那么当错误处理被调用时，你觉得会走哪一个？
+    let mypro = new Promise((resolve, reject)=>{
+      //如果销售额达到了,兑现承诺
+      //resolve();
+      //如果销售额没达到了，不兑现承诺
+      //reject();
+      setTimeout(()=>{
+        reject();
+        //resolve();
+      }, 1000);
+    });
+    mypro.then(()=>{
+      console.log("发奖金");
+    }, ()=>{
+      console.log("不发奖金1");
+    }).catch(()=>{
+      console.log("不发奖金2");
+    })
+    //会走第一个，为什么呢？书接下回
+    
+  </script>
+</body>
+</html>

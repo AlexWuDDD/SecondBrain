@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //传统异步编程回调函数封装思路
+    function ajax(url, successCb, errorCb){
+      setTimeout(()=>{
+        //如果成功
+        //successCb();
+        //如果失败
+        errorCb();
+      }, 1000);
+    }
+
+    ajax("1111", ()=>{
+      console.log("ajax成功");
+    }, ()=>{
+      console.log("ajax失败");
+    })
+
+    //一般而言，success Callback函数写在前，error Callback 函数写在后
+    //但可能在交给他人使用时，并没有详细说明，就告诉你，这个函数需要输入1个url, 两个callback函数
+    //那么就会有人在编写函数时弄反，也就是说把error Callback函数写在前，success Callback函数写在后呢？
+    //没办法只能自己去看源码
+    //这就是之前回调函数的短板：
+    //没法在使用时，没法通过函数的传入，去知道这个函数到底是在成功时使用，还是在错误时使用。
+    //顺序不能错，必要的时候，必须去读源码
+
+    /*jquery $.ajax*/
+    $.ajax({
+      url: "",
+      success: function(){
+
+      },
+      error: function(){
+
+      }
+    })
+
+    //至此可能你会觉得很满意了，
+    //但是如果说我们请求完了第一个接口，并没有得到我们想要的数据，必须请求第二个接口
+    //而且第二个接口必须依赖第一个接口返回的数据结果
+    //也就是这里需要一个嵌套的调用过程，也就是我们常说的“回调地狱”。
+
+    //且看在“回调地狱”下，我们是否能优雅的使用回调函数。 
+    //假设我们有三个接口 /aaa /bbb /ccc
+    //我们需要的数据在/ccc中
+    //我们必须使用从/bbb中返回的token,作为调用/ccc的参数，我们才能从/ccc中获取数据
+    //而如果想请求bbb成功，那我们必须先请求/aaa成功，返回一个密钥，然后用这个密钥去调用/bbb
+
+    //这种需求在实际项目中很正常
+    //因为/ccc中的数据是受隐私保护的，必须通过前两步的授权认证，才能获取
+
+    //这样我们的代码就会成为
+    ajax("/aaa", ()=>{
+      console.log("ajax调用/aaa成功");
+      ajax("/bbb", ()=>{
+        console.log("ajax调用/bbb成功");
+        ajax("/ccc", ()=>{
+          console.log("ajax调用/ccc成功");
+        }, ()=>{
+          console.log("ajax调用/ccc失败");
+        })
+      }, ()=>{
+        console.log("ajax调用/bbb失败");
+      })
+    }, ()=>{
+      console.log("ajax调用/aaa失败");
+    })
+
+    //如果你觉得用jquery会好一点，但是你会发现其实是一个熊样
+    $.ajax({
+      url: "/aaa",
+      success: function(){
+        console.log("ajax调用/aaa成功");
+        $.ajax({
+          url: "/bbb",
+          success: function(){
+            console.log("ajax调用/bbb成功");
+            $.ajax({
+              url:"/ccc",
+              success: function(){
+                console.log("ajax调用/ccc成功");
+              },
+              error: function(){
+                console.log("ajax调用/ccc失败");
+              }             
+            })
+          },
+          error: function(){
+            console.log("ajax调用/bbb失败");
+          }
+        })
+      },
+      error: function(){
+        console.log("ajax调用/aaa失败");
+      }
+    })
+
+    //这样你就落入了回调地狱，也可以称为嵌套金字塔
+    //上述3个调用中万一有1个失败，你必须在三个失败中分别想好怎么处理失败
+    //无法统一的对失败做好处理
+    //而且这么写代码也不美观，造成了嵌套金字塔，导致代码的不可维护性，也会造成同事的骂街。
+
+
+    //综上，这就是我们需要使用Promise的原因。
+
+
+  </script>
+</body>
+</html>

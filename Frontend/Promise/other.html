@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //Promise构造函数
+    let mypro = new Promise((resolve, reject)=>{
+      setTimeout(()=>{
+        reject();
+      }, 2000);
+    });
+    console.log(mypro);
+    mypro.catch(()=>{
+      console.log("不发奖金");
+    })
+  </script>
+</body>
+</html>

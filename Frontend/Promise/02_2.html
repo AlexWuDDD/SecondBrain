@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    /*
+    function ajax(url, successCb, errorCb){
+      setTimeout(()=>{
+        //如果成功
+        //successCb();
+        //如果失败
+        errorCb();
+      }, 1000);
+    }
+    */
+    //之前我们是这么封装的
+    //如果有人告诉你ajax函数调用返回时一个Promise对象，
+    //那么我们就可以.then & .catch 的使用了, 这是Promise的共识
+    ajax('111').then(()=>{
+      console.log("请求成功");
+    }).catch(()=>{
+      console.log("请求失败");
+    });
+
+    function ajax(url){
+      return new Promise((resolve, reject)=>{
+        setTimeout(()=>{
+          resolve();
+        }, 2000);
+      });
+    }
+
+    //虽然封装的时候，有点麻烦，但是只要基于Promise封装，那么告诉其他人时，其他人就可以直接使用.then & .catch使用了。
+
+  </script>
+</body>
+</html>
