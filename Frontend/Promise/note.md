@@ -14,6 +14,10 @@
 
 ## 二. Promise基础使用
 
+[说明1](./02_1.html)
+
+[说明2](./02_2.html)
+
 ## 三. Promise对象的状态
 
 Promise对象通过自身的状态，来控制异步操作。Promise实例具有三种状态。
@@ -40,5 +44,79 @@ Promise对象通过自身的状态，来控制异步操作。Promise实例具有
 异步操作失败，Promise实例抛出一个错误（error),状态变为rejected。
 ```
 
+[说明](./03_1.html)
+
 ## 四. Promised结果
 
+[说明](./04_1.html)
+
+## 五. Promise封装AJAX
+
+[说明](./05_1.html)
+
+## 六. Promise对象方法
+
+> Promise是一个对象，也是一个构造函数
+
+### 1. Promise.resolve
+
+将现有对象转为Promise对象
+
+```js
+Promise.resolve('Alex')
+//等价于
+new Promise(resolve => resolve('Alex'))
+```
+
+[说明1](./06_1.html)
+
+[说明2](./06_2.html)
+
+### 2. Promise.reject
+
+Promise.reject(reason)方法也将返回一个新的Promise实例，该实例的状态为rejected
+
+```js
+const p = Promise.reject('error');
+//等同于
+const p = new Promise((resolve, reject)=>reject('error'))
+```
+
+[说明3](./06_3.html)
+
+[说明4](./06_4.html)
+
+[链式调用实例1](./06_5.html)
+
+
+
+### 3. Promise.all
+
+Promise.all()方法用于将多个Promise实例，包装成一个新的Promise实例。
+
+```js
+const p = Promise.all([p1, p2, p3]);
+
+```
+
+p的状态由p1,p2, p3决定，分成两种情况。
+
+（1）只有p1、p2、p3的状态都变成fulfilled, p的状态才会变成fulfilled, 此时p1、p2、p3的返回值组成一个数组，传递给p的回调函数。
+
+（2）只要p1、p2、p3之中有一个被rejected, p的状态就会变成rejected, 此时第一个被rejected的实例的返回值，会传递给p的回调函数。
+
+[说明](./06_6.html)
+
+### 4. Promise.race
+
+Promise.race()方法同样是将多个Promise实例，包装成一个新的Promise实例
+
+```js
+const p = Promise.race([p1, p2, p2]);
+```
+
+上面代码中，只要p1、p2、p3之中有一个实例率先改变状态，p的状态就跟着改变。那个率先改变的Promise实例的返回值，就传递给p的回调函数。
+
+[说明1](./06_7.html)
+[说明2](./06_8.html)
+[怎么封装请求超时](./06_9.html)

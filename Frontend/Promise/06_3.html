@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //let p = Promise.reject("error");
+    let p = Promise.reject({error: "aaa"});
+    //console.log(p);
+    p.catch(err=>{
+      console.log(err);
+    })
+
+
+    //返回200
+    let p1 = new Promise((resolve, reject)=>{
+      setTimeout(()=>{
+        resolve(null);
+      }, 1000);
+    })
+
+    p1.then(res=>{
+      console.log(res);
+      //res = null; 返回statue是200的情况下，数据是空的，所以此时需要报错
+      if(res){
+        console.log("渲染页面函数调用");
+      }
+      else{
+        console.log("错误的");
+        //return Promise.reject("error, 渲染页面函数调用");
+        throw new Error("Alex=error")
+      }
+    }).catch(err=>{
+      console.log(err);
+    })
+
+  </script>
+</body>
+</html>
