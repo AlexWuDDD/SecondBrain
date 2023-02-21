@@ -118,5 +118,36 @@ const p = Promise.race([p1, p2, p2]);
 上面代码中，只要p1、p2、p3之中有一个实例率先改变状态，p的状态就跟着改变。那个率先改变的Promise实例的返回值，就传递给p的回调函数。
 
 [说明1](./06_7.html)
+
 [说明2](./06_8.html)
+
 [怎么封装请求超时](./06_9.html)
+
+### 5. Promise.allSettled
+
+Promise.allSettled()方法，用来确定一组异步操作是否都结束了（不管成功或失败）。所以，它的名字叫做“Settled”，包含了“fulfilled”和“rejected”两种情况。
+
+```js
+const promises = [ajax("/aaa"), ajax("/bbb")];
+Promise.allSettled(promises).then(resultes=>{
+  //过滤出成功的请求
+  results.filter(item=>item.status === "fulfilled");
+  //过滤出失败的请求
+  results.filter(item=>item.status === "rejected");
+})
+```
+
+[说明](./06_10.html)
+
+### 6. Promise.any
+
+只要参数实例有一个变成fulfilled状态，包装实例就会变成fulfilled状态；
+如果所有参数实例都变成rejected状态，包装实例就会变成rejected状态。
+
+>Promise.any()跟Promise.race()方法很像，只有一点不同，就是Promise.any()不会因为某个Promise变成rejected状态而结束，必须等到所有参数Promise变成rejected状态才会结束。
+
+## 七. finally
+
+[说明](./07_1.html)
+
+[loading](./07_2.html)
