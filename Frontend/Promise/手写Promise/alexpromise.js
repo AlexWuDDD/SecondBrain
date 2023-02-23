@@ -24,16 +24,71 @@ function AlexPromise(executor){
 }
 
 AlexPromise.prototype.then = function(successCB, failCB){
-  if(this.status === "fulfilled"){
-    successCB && successCB(this.result);
+
+  if(!successCB){
+    successCB = res => res
   }
-  else if(this.status === "rejected"){
-    failCB && failCB(this.result);
+
+  if(!failCB){
+    failCB = err => err
   }
-  else if(this.status === "pending"){
-    this.cb.push({
-      successCB: successCB,
-      failCB: failCB
-    })
-  }
+
+  return new AlexPromise((resolve, reject)=>{
+    if(this.status === "fulfilled"){
+      let result = successCB && successCB(this.result);
+      if(result instanceof AlexPromise){
+        result.then(res=>{
+          resolve(res);
+        }, err=>{
+          reject(err);
+        })
+      }else{
+        resolve(result);
+      }
+    }
+    else if(this.status === "rejected"){
+      let result = failCB && failCB(this.result);
+      if(result instanceof AlexPromise){
+        result.then(res=>{
+          resolve(res);
+        }, err=>{
+          reject(err);
+        })
+      }else{
+        reject(result);
+      }
+    }
+    else if(this.status === "pending"){
+      this.cb.push({
+        successCB: ()=>{
+          let result = successCB(this.result);
+          if(result instanceof AlexPromise){
+            result.then(res=>{
+              resolve(res);
+            }, err=>{
+              reject(err);
+            })
+          }else{
+            resolve(result);
+          }
+        },
+        failCB: ()=>{
+          let result = failCB(this.result);
+          if(result instanceof AlexPromise){
+            result.then(res=>{
+              resolve(res);
+            }, err=>{
+              reject(err);
+            })
+          }else{
+            reject(result);
+          }
+        }
+      })
+    }
+  })
+}
+
+AlexPromise.prototype.catch = function(failCB){
+  this.then(undefined, failCB);
 }

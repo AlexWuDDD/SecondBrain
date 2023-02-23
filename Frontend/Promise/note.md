@@ -151,3 +151,41 @@ Promise.allSettled(promises).then(resultes=>{
 [说明](./07_1.html)
 
 [loading](./07_2.html)
+
+## 八. Async与Await
+
+### 1. Async
+
+async函数，使得异步操作变得更加方便。
+
+- 更好的语义
+- 返回值是Promise
+
+```js
+
+async function test(){
+
+}
+test();
+
+```
+
+### 2.Await
+
+await命令后面是一个Promise对象，返回该对象的结果。如果不是Promise对象，就直接返回对应的值。
+
+```js
+async function test(){
+  let res1 = await ajax("/aaa");
+  let res2 = await ajax("/bbbb");
+  return res2;
+}
+
+test().then(res=>{
+  console.log("返回结果"，res);
+}).catch(err=>{
+  console.log("err", err);
+})
+```
+
+### 3. 错误处理

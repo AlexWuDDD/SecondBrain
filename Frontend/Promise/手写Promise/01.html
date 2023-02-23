@@ -12,13 +12,22 @@
     let ap = new AlexPromise((resolve, reject)=>{
       //resolve("222");
       //reject("1111");
+      
       setTimeout(()=>{
         //resolve("222");
         reject("1111");
       }, 1000);
+      
     });
 
     ap.then(res=>{
+      console.log("success",res);
+    }).catch(err=>{
+      console.log("catch",err);
+    })
+
+    /*
+    ap.then(res=>{
       console.log("success", res);
     },err=>{
       console.log("err", err);
@@ -29,7 +38,27 @@
     },err=>{
       console.log("err", err);
     })
+    */
 
+    /*
+    ap.then(res=>{
+      console.log("success1", res);
+      //return "aaaa";
+      
+      return new AlexPromise((resolve, reject)=>{
+        resolve("alex - " + res);
+        //reject("alex - " + res);
+      })
+      
+    },err=>{
+      console.log("err1", err);
+      return("errr-1111");
+    }).then(res=>{
+      console.log("success2", res);
+    }, err=>{
+      console.log("err2", err);
+    })
+    */
 
     console.log(ap);
 
