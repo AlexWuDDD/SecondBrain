@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- <style>
+    table, tr, td{
+      border-collapse: collapse;
+    }
+  </style> -->
+</head>
+<body>
+  <!-- 三行 每行三个小格 -->
+  <!-- table时表格的意思 -->
+  <!-- tr table row 表格行 -->
+  <!-- td table data  表格数据 表格小格-->
+  <!-- th table header  表格小格标题 跟td是同一个层级的-->
+  <!-- border = "1" -->
+  <p>
+    <table border="1" width="600">
+      <caption>我是表格的标题</caption>
+      <tr>
+        <th>第一季度</th>
+        <th>第二季度</th>
+        <th>第三季度</th>
+        <th>第四季度</th>
+      </tr>
+      <tr>
+        <td>A</td>
+        <td>B</td>
+        <td>C</td>
+        <td>D</td>
+      </tr>
+      <tr>
+        <td>E</td>
+        <td>F</td>
+        <td>G</td>
+        <td>H</td>
+      </tr>
+      <tr>
+        <td>I</td>
+        <td>J</td>
+        <td>K</td>
+        <td>L</td>
+      </tr>
+    </table>
+  </p>
+
+  <!-- 表格的合并 -->
+  <p>
+    <table border="2" width="400"> 
+      <tr>
+        <td colspan="2">A</td>
+        <td>B</td>
+        <td>C</td>
+      </tr>
+      <tr>
+        <td rowspan="2">D</td>
+        <td colspan="3">E</td>
+      </tr>
+      <tr>
+        <td>J</td>
+        <td>K</td>
+        <td>L</td>
+      </tr>
+    </table>
+  </p>
+
+  <!-- thead tbody tfoot -->
+  <table>
+    <thead>
+      <tr>
+        <th>Month</th>
+        <th>Savings</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>January</td>
+        <td>$100</td>
+      </tr>
+      <tr>
+        <td>February</td>
+        <td>$80</td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td>Sum</td>
+        <td>$180</td>
+      </tr>
+    </tfoot>
+  </table>
+
+</body>
+</html>

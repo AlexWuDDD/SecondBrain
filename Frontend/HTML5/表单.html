@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <form action="" method="post">
+    <!-- 单行文本框 -->
+    <p>
+      请输入您的姓名<input type="text">
+    </p>
+    <p>
+      报考院校：<input type="text" value="清华大学" disabled>
+    </p>
+    <p>
+      毕业学校：<input type="text" placeholder="请输入真实的毕业学校哦">
+    </p>
+    <!-- 单选按钮 互斥的单选按钮应该设置它们的name为相同值-->
+    <!-- 单选按钮要有value属性值-->
+    <!-- 单选按钮如果加上了checked属性，表示默认被选中-->
+    <!-- label标签用来将文字和单选按钮进行绑定，用户单击文字的时候也视为点击了单选按钮 -->
+    <p>
+      性别：
+      <label>
+        <input type="radio" name="sex" value="m" checked>男
+      </label>
+      <label>
+        <input type="radio" name="sex" value="f">女
+      </label>
+
+    </p>
+    <p>
+      血型：
+      <!-- html4 -->
+      <input type="radio" name="bloodtype" value="A" id="A" checked><A><label for="A">A</label>
+      <!-- html5 -->
+      <label><input type="radio" name="bloodtype" value="B">B</label>
+      <label><input type="radio" name="bloodtype" value="AB">AB</label>
+      <label><input type="radio" name="bloodtype" value="O">O</label>
+    </p>
+    <!-- 复选框 -->
+    <!-- 同组复选框应该设置它们的name为相同值 -->
+    <p>
+      爱好:
+      <label><input type="checkbox" name="hobby" value="score">足球</label>
+      <label><input type="checkbox" name="hobby" value="basketball">篮球</label>
+      <label><input type="checkbox" name="hobby" value="badminton">羽毛球</label>
+      <label><input type="checkbox" name="hobby" value="swimming">游泳</label>
+      <label><input type="checkbox" name="hobby" value="football">橄榄球</label>
+    </p>
+    <!-- 密码框 -->
+    <p>
+      请输入密码：<input type="password">
+    </p>
+    <!-- 下拉菜单 -->
+    <!-- select 表示下拉菜单 option是内部的选项 -->
+    <p>
+      支付方式：
+      <select>
+        <option value="Alipay">支付宝</option>
+        <option value="wx">微信</option>
+        <option value="UnionPay">云闪付</option>
+      </select>
+    </p>
+    <!-- 多行文本框 -->
+    <p>
+      留言：
+      <textarea rows="10" cols="80">
+
+      </textarea>
+    </p>
+    <!-- 三种按钮 -->
+    <p>
+      <input type="button" value="普通按钮">
+      <input type="submit" value="提交按钮，提交表单">
+      <input type="reset"  value="重置按钮，重置表单内容">
+    </p>
+  </form>
+</body>
+</html>
