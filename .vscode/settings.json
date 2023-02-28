@@ -15,5 +15,8 @@
     "javalibs/stdlib.jar",
     "javalibs/stdlib-package.jar"
   ],
-  "java.debug.settings.onBuildFailureProceed": true
+  "java.debug.settings.onBuildFailureProceed": true,
+  "files.watcherExclude": {
+    "**/target": true
+  }
 }
