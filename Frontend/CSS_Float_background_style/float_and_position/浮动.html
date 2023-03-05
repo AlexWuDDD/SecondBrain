@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box{
+      width: 600px;
+      height: 200px;
+      border: 1px solid #000;
+    } 
+    .box .c1{
+      width: 200px;
+      height: 200px;
+      background-color: orange;
+      float: left;      
+    }
+    .box .c2{
+      width: 200px;
+      height: 200px;
+      background-color: green;
+      float: left;
+    }
+    .box .c3{
+      width: 200px;
+      height: 200px;
+      background-color: blue;
+      float: left;
+    }
+
+    .box1{
+      margin-top: 20px;
+      width: 400px;
+      height: 300px;
+      border: 1px solid #000;
+    }
+
+    .box1 .c1{
+      width: 200px;
+      height: 200px;
+      background-color: red;
+      float:left;
+    }
+
+    .box1 .c2{
+      width: 200px;
+      height: 100px;
+      background-color: aquamarine;
+      float: left;
+    }
+
+    .box1 .c3{
+      width: 200px;
+      height: 100px;
+      background-color: blueviolet;
+      float: left;
+    }
+
+    .box2{
+      margin-top: 20px;
+      width: 200px;
+      height: 200px;
+      border: 1px solid #000;
+    }
+
+    .box2 span{
+      float: left;
+      width: 50px;
+      height: 30px;
+      background-color: #cf3131;
+      line-height: 30px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <div class="c1"></div>
+    <div class="c2"></div>
+    <div class="c3"></div>
+  </div>
+
+  <!-- 浮动的顺序贴靠特性 -->
+  <div class="box1">
+    <div class="c1"></div>
+    <div class="c2"></div>
+    <div class="c3"></div>
+  </div>
+
+  <!-- 浮动的元素一定能设置宽高 -->
+  <div class="box2">
+    <span>1</span>
+    <span>2</span>
+    <span>3</span>
+    <span>4</span>
+  </div>
+
+</body>
+</html>
