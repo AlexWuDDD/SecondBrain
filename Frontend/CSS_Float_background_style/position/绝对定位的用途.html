@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+
+    .carousel{
+      width: 285px;
+      height: 177px;
+      border: 1px solid #000;
+      margin: 40px auto;
+      position: relative;
+    }
+
+    .carousel .btn{
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      top: 50%;
+      margin-top: -20px;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 40px;
+      background-color: rgba(255, 255, 255, 0.6);
+      /*鼠标围殴小手*/
+      cursor: pointer;
+      text-decoration: none;
+      font-size: 20px;
+    }
+
+    .carousel .btn:hover{
+      background-color: gold;
+      color: white;
+    }
+
+    .carousel .leftbtn{
+      left: 10px;
+    }
+
+    .carousel .rightbtn{
+      right: 10px;
+    }
+
+    .carousel ol{
+      position: absolute;
+      width: 100px;
+      height: 20px;
+      right: 20px;
+      bottom: 20px;
+      list-style: none;
+    }
+
+    .carousel ol li{
+      float: left;
+      width: 15px;
+      height: 15px;
+      background-color: gold;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="carousel">
+    <img src="images/1.jfif" alt="">
+    <a href="#" class="leftbtn btn">&lt;</a>
+    <a href="#" class="rightbtn btn">&gt;</a>
+    <!-- 实际开发中不建议去掉href属性，而是建议设置href="#"或者设置href="javascript:;"禁止链接刷新或跳转 -->
+    <ol>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ol>
+  </div>
+</body>
+</html>
