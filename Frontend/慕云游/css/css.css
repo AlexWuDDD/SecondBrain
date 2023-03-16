@@ -1,0 +1,169 @@
+.site-head{
+  height: 150px;
+}
+
+.site-head .topbar{
+  height: 32px;
+  background-color: #2a2a2a;
+  line-height: 32px;
+}
+
+.site-head .topbar a{
+  color: white;
+}
+
+.site-head .topbar .shortcut-links{
+  float: left;
+}
+
+.site-head .topbar .shortcut-links ul{
+  
+}
+
+.site-head .topbar .shortcut-links > ul > li{
+  float: left;
+  margin-right: 18px;
+  font-size: 14px;
+}
+
+.site-head .topbar .shortcut-links > ul > li.have-menu{
+  padding-right: 12px;
+  position: relative;
+}
+
+.site-head .topbar .shortcut-links > ul > li.have-menu .arrow{
+  position: absolute; 
+  right: 0;
+  top: 50%;
+  margin-top: -6px;
+  width: 12px;
+  height: 12px;
+  transition: transform .2s ease 0s;
+}
+
+.site-head .topbar .shortcut-links > ul > li.have-menu:hover .arrow{
+  transform: rotate(180deg);
+}
+
+.site-head .topbar .shortcut-links > ul > li.have-menu .arrow b{
+  position: absolute;
+  top: 2px;
+  left: 4px;
+  width: 6px;
+  height: 6px;
+  background-color: white;
+  transform: rotate(45deg);
+}
+
+.site-head .topbar .shortcut-links > ul > li.have-menu .arrow i{
+  position: absolute;
+  top: 0.5px;
+  left: 4px;
+  width: 6px;
+  height: 6px;
+  background-color: #2a2a2a;
+  transform: rotate(45deg);
+}
+
+.site-head .topbar .topbar-r{
+  float: right;
+  width: 225px;
+}
+
+.site-head .topbar .topbar-r span{
+  color: white;
+}
+
+.site-head .topbar .topbar-r a, .site-head .topbar .topbar-r span{
+  margin-right: 11px;
+  font-size: 14px;
+}
+
+.site-head .topbar .topbar-r:last-child{
+  margin-right: 0;
+}
+
+.site-head .main-nav{
+  height: 40px;
+  background-color: #20BD9A;
+}
+
+.site-head .main-nav ul li{
+  float: left;
+  margin-right: 18px;
+}
+
+.site-head .main-nav ul li.have-menu{
+  padding-right: 16px;
+  position: relative;
+}
+
+.site-head .main-nav ul li a{
+  line-height: 40px;
+  color: white;
+  font-size: 16px;
+}
+
+.site-head .main-nav ul li.have-menu::before{
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 18px;
+
+  width: 0px;
+  height: 0px;
+  border: 5px solid transparent;
+  border-bottom: none;
+  border-top-color: white;
+
+  transition: transform 0.2s ease 0s;
+}
+
+.site-head .main-nav ul li.have-menu:hover::before{
+  transform: rotate(180deg);
+}
+
+.site-head .head-con{
+  height: 36px;
+  padding: 21px 0;
+}
+
+.site-head .head-con h1{
+  float: left;
+  font-size: 24px;
+  color:#20BD9A;
+  font-weight: bold;
+  line-height: 36px;
+}
+
+.site-head .head-con .soso-box{
+  float: left;
+  margin-left: 20px;
+  width: 405px;
+  padding-top: 2px;
+}
+
+.site-head .head-con .soso-box input{
+  width: 361px;
+  height: 28px;
+  border: 1px solid #20BD9A;
+  /* 分别按四个角进行设置 */
+  border-radius: 4px 0 0 4px;
+  font-size: 14px;
+  /* 取消默认的外线 外线是文本框特有的东西*/
+  outline: none;
+  padding-left: 10px;
+  float: left;
+}
+
+.site-head .head-con .soso-box .btn{
+  float: left;
+  width: 32px;
+  height: 30px;
+  background-color: #20BD9A;
+  color: white;
+  text-align: center;
+  line-height: 30px;
+  font-size: 18px;
+  border-radius: 0 4px 4px 0;
+}

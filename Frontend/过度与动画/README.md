@@ -54,3 +54,61 @@ transition: all 1s linear 0s;
 ### 贝塞尔曲线
 
 -网站https://cubic-bezier.com可以生成贝塞尔曲线，可以自定义动画欢动参数
+
+## 动画的定义和调用
+
+- 可以收用@keyframes来定义动画，keyframes表示“关键帧”，在项目上线前，要不胜@-webkit-这样的私有前缀
+
+```css
+/*定义动画*/
+@keyframes r{ /*动画名字*/
+/*起始状态*/
+      from{
+            transform: rotate(0);
+      }
+/*结束状态*/
+      to{
+            transform: rotate(360deg);
+      }
+}
+```
+
+### 动画的调用
+
+- 定义动画之后，就可以使用animation属性调用动画
+
+```css
+animation: r 1s linear 0s;
+```
+
+### 动画的执行次数
+
+- 第五个参数就是动画的执行次数
+
+```css
+animation: r 1s linear 0s 3;
+```
+
+- 如果想永远执行可以写infinite
+
+```css
+animation: r 1s linear 0s infinite;
+```
+
+### alternate和forwards
+
+- 如果想让动画的第2、4、6...（偶数次）自动逆向执行，那么要加上alternate参数即可
+
+```css
+animation: r 1s linear 0s infinite alternate;
+```
+
+- 如果想让动画停止在最后结束状态，那么要加上forwards
+
+```css
+animation: r 1s linear 0s forwards;
+```
+
+### 多关键帧动画
+
+![多关键帧动画](./Capture2.PNG)
