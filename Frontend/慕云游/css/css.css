@@ -512,12 +512,12 @@
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
-.jjzyx{
+.common-style{
   height: 698px;
   padding-top: 40px;
 }
 
-.jjzyx .hd h2{
+.common-style .hd h2{
   float: left;
 }
 
@@ -546,32 +546,55 @@
   color: #20BD9A;
 }
 
-.jjzyx .bd{
+/* 公共的一个特效，鼠标触碰图片，能够有放大效果 */
+.content-part img{
+  transition: transform .4s ease 0s;
+}
+
+.content-part img:hover{
+  transform: scale(1.1);
+}
+
+.content-part li{
+  overflow: hidden;
+}
+
+.content-part li .picbox{
+  height: 184px;
+  overflow: hidden;
+}
+
+.content-part .grid{
+  overflow: hidden;
+}
+
+.common-style .bd{
   padding-top: 32px;
 }
 
-.jjzyx .bd > ul > li{
+.common-style .bd > ul > li{
   float: left;
   margin-right: 32px;
   margin-bottom: 32px;
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.08);
+  background-color: white;
 }
 
-.jjzyx .bd > ul > li:hover{
+.common-style .bd > ul > li:hover{
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
-.jjzyx .bd > ul > li:nth-child(3), .jjzyx .bd ul li:nth-child(7){
+.common-style .bd > ul > li:nth-child(3), .common-style .bd ul li:nth-child(7){
   margin-right: 0;
 }
 
-.jjzyx .bd > ul > li.big-grid{
+.common-style .bd > ul > li.big-grid{
   width: 560px;
   height: 270px;
   position: relative;
 }
 
-.jjzyx .bd > ul > li.big-grid .info{
+.common-style .bd > ul > li.big-grid .info{
   position: absolute;
   width: 560px;
   height: 103px;
@@ -584,7 +607,7 @@
   line-height: 26px;
 }
 
-.jjzyx .bd > ul > li .tag{
+.common-style .bd > ul > li .tag{
   position: absolute;
   width: 74px;
   height: 40px;
@@ -594,24 +617,26 @@
   color: white;
   text-align: center;
   line-height: 40px;
+  /* 图片一触碰，就会有transform变形，那么此时会神奇的盖住tag, 所以为了防止盖住，我们应该设置z-index */
+  z-index: 9999;
 }
 
-.jjzyx .bd > ul > li.pro-grid{
+.common-style .bd > ul > li.pro-grid{
   width: 264px;
   height: 270px;
 }
 
-.jjzyx .bd > ul > li.pro-grid .picbox{
+.common-style .bd > ul > li.pro-grid .picbox{
   position: relative;
   height: 184px;
   vertical-align: middle;
 }
 
-.jjzyx .bd > ul > li.pro-grid .picbox .tag{
+.common-style .bd > ul > li.pro-grid .picbox .tag{
   bottom: 0;
 }
 
-.jjzyx .bd > ul > li.pro-grid .wordbox{
+.common-style .bd > ul > li.pro-grid .wordbox{
   padding: 14px;
   font-size: 14px;
   line-height: 26px;
@@ -623,12 +648,15 @@
   height: 270px;
   background-image: linear-gradient(180deg, #34E3BC 0%, #15af7A 98%);
   box-sizing: border-box;
-  padding-top: 46px;
   position: relative;
 }
 
 .content-part .bd .more-grid a{
   color: white;
+  display: block;
+  padding-top: 46px;
+  height: 270px;
+  box-sizing: border-box;
 }
 
 .content-part .bd .more-grid a p{
@@ -645,6 +673,20 @@
   left: 50%;
   top: 118px;
   margin-left: -25px;
+}
+
+/* 鼠标触碰more-grid盒子之后，iconfont进行蹦跳动画 */
+.content-part .bd .more-grid:hover a .iconfont{
+  animation: ud .4s ease 0s infinite alternate;
+}
+
+@keyframes ud{
+  from{
+    transform: translateY(-10px);
+  }
+  to{
+    transform: translateY(10px);
+  }
 }
 
 .content-part .bd .more-grid a ul{
@@ -699,6 +741,7 @@
   height: 270px;
   position: relative;
   margin-bottom: 30px;
+  overflow: hidden;
 }
 
 .ddwl .bd .bigpicbox .infobox{
@@ -735,12 +778,14 @@
   height: 120px;
   background-color: white;
   margin-bottom: 30px;
+  overflow: hidden;
 }
 
 .ddwl .bd .grid .picbox{
   float: left;
   width: 120px;
   height: 120px;
+  overflow: hidden;
 }
 
 .ddwl .bd .grid .wordbox{
@@ -817,4 +862,239 @@
 .tsddty .bd ul li .wordbox .comment{
   font-size: 13px;
   color: #000000;
+}
+
+.zsjsdlx{
+  height: 738px;
+  background-color: #F7F7F7;
+}
+
+.zsjsdlx .hd em{
+  float: left;
+  width: 305px;
+}
+
+.zsjsdlx .hd nav{
+  float: right;
+  width: 85px;
+}
+
+.zsjsdlx .bd .more-grid{
+  background-image: linear-gradient(180deg, #BD5EE8 0%, #832abb 98%);
+}
+
+.zsjsdlx .bd .more-grid a ul{
+  padding-left: 50px;
+}
+
+.gtbzzy .hd em{
+  float: left;
+  width: 305px;
+}
+
+.gtbzzy .hd nav{
+  float: right;
+  width: 157px;
+}
+
+.gtbzzy .bd .more-grid{
+  background-image: linear-gradient(180deg, #41D8E9 0%, #3685EA 98%);
+}
+
+.gtbzzy .bd .more-grid a ul{
+  padding-left: 70px;
+}
+
+.zsjsdlx .big-grid .mask, .gtbzzy .big-grid .mask{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top:0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  /* 总透明度 */
+  opacity: 0;
+  /* 过渡 */
+  transition: opacity .4s ease 0s;
+}
+
+.zsjsdlx .big-grid:hover .mask, .gtbzzy .big-grid:hover .mask{
+  opacity: 1;
+}
+
+.zsjsdlx .big-grid .circle, .gtbzzy .big-grid .circle{
+  position: absolute;
+  width: 106px;
+  height: 106px;
+  border: 1px solid white;
+  border-radius: 50%;
+  top: -106px;
+  left: 50%;
+  margin-left: -53px;
+  box-sizing: border-box;
+  padding-top: 25px;
+  font-size: 18px;
+  color: white;
+  transition: top .5s ease 0s;
+}
+
+.zsjsdlx .big-grid:hover .circle, .gtbzzy .big-grid:hover .circle{
+  top: 62px;
+}
+
+.zsjsdlx .big-grid .circle p, .gtbzzy .big-grid .circle p{
+  text-align: center;
+}
+
+.zsjsdlx .big-grid .word, .gtbzzy .big-grid .word{
+  position: absolute;
+  bottom: -100px;
+  left: 10px;
+  color: white;
+  transition: bottom .5s ease 0s;
+}
+
+.zsjsdlx .big-grid:hover .word, .gtbzzy .big-grid:hover .word{
+  bottom: 30px;
+}
+
+footer .part1{
+  height: 220px;
+  background-color: #f7f7f7;
+}
+
+footer .part1 ul{
+  padding-top: 36px;
+}
+
+footer .part1 ul li{
+  float: left;
+  border-right: 1px solid #1C1F21;
+  padding: 0 26px;
+  height: 16px;
+  line-height: 16px;
+}
+
+footer .part1 ul li a{
+  color: #1C1F21;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+footer .part1 ul li:first-child{
+  padding-left: 0;
+}
+
+footer .part1 ul li:last-child{
+  border-right: none;
+  padding-right: 0;
+}
+
+footer .part1 .dlbox{
+  padding-top: 30px;
+}
+
+footer .part1 dl{
+  width: 289px;
+  float: left;
+  padding-left: 75px;
+  margin-right: 30px;
+  position: relative;
+}
+
+footer .part1 dl:last-child{
+  margin-right: 0;
+}
+
+footer .part1 dl dt{
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+footer .part1 dl::before{
+  content: '';
+  background-image: url("../images/icons.png");
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  left: 0;
+}
+
+footer .part1 dl dd{
+  font-size: 14px;
+}
+
+footer .part1 dl.txfw::before{
+  content: '';
+  background-position: -150px -178px;
+}
+
+footer .part1 dl.ccsx::before{
+  content: '';
+  background-position: -150px -104px;
+}
+
+
+footer .part1 dl.axph::before{
+  content: '';
+  background-position: -150px -31px;
+}
+
+footer .part2{
+  height: 225px;
+  background-color: #1C1F21;
+}
+
+footer .part2 .r1{
+  padding-top: 48px;
+  color: white;
+}
+
+footer .part2 .r1 h2{
+  float: left;
+  font-size: 46px;
+}
+
+footer .part2 .r1 .slogan{
+  float: left;
+  width: 532px;
+  font-size: 14px;
+  margin-left: 21px;
+  position: relative;
+  top: 10px;
+}
+
+footer .part2 .links{
+  padding-top: 10px;
+}
+
+footer .part2 .links li{
+  float: left;
+  border-right: 1px solid white;
+  padding: 0 10px;
+  font-size: 14px;
+  line-height: 14px;
+  height: 14px;
+}
+
+footer .part2 .links li:first-child{
+  padding-left: 0;
+}
+
+footer .part2 .links li:last-child{
+  border-right: none;
+}
+
+footer .part2 .links li a{
+  color: white;
+}
+
+footer .part2 .copyrights{
+  color: white;
+  padding-top: 20px;
+  font-size: 14px;
+}
+
+footer .part2 .copyrights a{
+  color: white;
 }
