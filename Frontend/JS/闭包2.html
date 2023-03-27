@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //创建体温检测函数checkTemp(n), 可以检查体温n是否正常，函数会返回布尔值
+    //但是，不同的小区有不同的体温检测标砖，比如A小区体温合格线是37.1℃，而
+    //B小区体温合格线是37.3℃，应该怎么编程呢？
+    function createCheckTemp(standardTemp){
+      function checkTemp(real){
+        if(real <= standardTemp){
+          alert("你的体温低于等于标准线")
+        }
+        else{
+          alert("你的体温高于等于标准线")
+        }
+      }
+      return checkTemp;
+    }
+
+    var checkTemp_A = createCheckTemp(37.1)
+    checkTemp_A(37.2)
+    var checkTemp_B = createCheckTemp(37.3)
+    checkTemp_B(37.2)
+
+
+  </script>
+</body>
+</html>
