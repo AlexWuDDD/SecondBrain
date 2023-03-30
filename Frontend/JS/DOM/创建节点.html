@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="box">
+    <p>我是原本的段落0</p>
+    <p>我是原本的段落1</p>
+    <p>我是原本的段落2</p>
+  </div>
+  <script>
+    let oBox = document.getElementById('box');
+    let oPs = oBox.getElementsByTagName('p');
+    //创建孤儿节点
+    let oP = document.createElement('p');
+    //设置内部文字
+    oP.innerHTML="我是新来的";
+    //上树
+    //oBox.appendChild(oP)
+    oBox.insertBefore(oP, oPs[1]);
+  </script>
+</body>
+</html>
