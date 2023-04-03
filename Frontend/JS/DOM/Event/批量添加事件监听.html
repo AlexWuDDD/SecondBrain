@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <ul id="list">
+    <li>列表项</li>
+    <li>列表项</li>
+    <li>列表项</li>
+    <li>列表项</li>
+    <li>列表项</li>
+    <li>列表项</li>
+    <li>列表项</li>
+    <li>列表项</li>
+    <li>列表项</li>
+    <li>列表项</li>
+    <li>列表项</li>
+    <li>列表项</li>
+    <li>列表项</li>
+    <li>列表项</li>
+    <li>列表项</li>
+    <li>列表项</li>
+    <li>列表项</li>
+    <li>列表项</li>
+    <li>列表项</li>
+    <li>列表项</li>
+  </ul>
+
+  <script>
+    let oList = document.getElementById("list");
+    let lis = oList.getElementsByTagName("li");
+    console.log(lis.length);
+    //书写循环语句，批量给元素添加监听
+    for(let i = 0; i < lis.length; ++i){
+      lis[i].addEventListener('click', function(e){
+        //在这个函数中，this表示点击的这个函数，
+        this.style.color = 'red';
+      }, true);
+    }
+  </script>
+</body>
+</html>
