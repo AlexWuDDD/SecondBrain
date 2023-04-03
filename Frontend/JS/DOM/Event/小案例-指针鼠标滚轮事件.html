@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #box{
+      width: 200px;
+      height: 200px;
+      background-color: orangered;
+      text-align: center;
+      line-height: 200px;
+      font-size: 50px;
+    }
+    body{
+      height: 2000px;
+    }
+  </style>
+</head>
+<body>
+  <div id="box">0</div>
+  <script>
+    let i = 0
+    let oBox = document.getElementById("box");
+    /*
+    - 制作鼠标滚轮事件：当鼠标在盒子中向下滚动时，数字加1；反之，数字减1
+    - 鼠标滚轮事件时onmousewhell,它的事件对象e提供deltaY属性表示鼠标滚动方向，向下滚动时返回正值，向上滚动时返回负值
+    */
+    oBox.onmousewheel = function(e){
+      //阻止默认事件：就是说当用户在盒子里滚动鼠标滚轮的时候
+      //此时不会引发页面的滚动条滚动
+      e.preventDefault();
+      console.log(e.deltaY);
+      if(e.deltaY > 0){
+        ++i;
+      }
+      else{
+        --i;
+      }
+      oBox.innerHTML = i;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #box1{
+      width: 400px;
+      height: 400px;
+      border: 1px solid #000;
+    }
+
+    #box2{
+      width: 300px;
+      height: 300px;
+      border: 1px solid #000;
+      margin: 50px;
+    }
+
+    #box3{
+      width: 200px;
+      height: 200px;
+      border: 1px solid #000;
+      margin: 50px;
+    }
+  </style>
+</head>
+<body>
+  <div id="box1">
+    <div id="box2">
+      <div id="box3">
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let oBox1 = document.getElementById('box1');
+    let oBox2 = document.getElementById('box2');
+    let oBox3 = document.getElementById('box3');
+
+    oBox1.addEventListener('click', function(){
+      console.log("box1");
+    }, false);
+
+    oBox2.addEventListener('click', function(){
+      console.log("box2");
+    }, false);
+
+    oBox3.addEventListener('click', function(){
+      console.log("box3");
+    }, false);
+
+  </script>
+</body>
+</html>

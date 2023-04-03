@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #box{
+      width: 200px;
+      height: 200px;
+      background-color: orangered;
+    }
+  </style>
+</head>
+<body>
+  <div id="box">
+    <button id="btn">按我</button>
+  </div>
+  <script>
+    let oBox = document.getElementById("box");
+    let oBtn = document.getElementById("btn");
+
+    /*
+    oBtn.onclick = function(e){
+      console.log("我是按钮")
+      e.stopPropagation();
+    }
+
+    oBox.onclick = function(e){
+      console.log("我是盒子");
+    }
+    */
+
+    //捕获阶段
+    oBtn.addEventListener('click', function(e){
+      console.log("我是按钮")
+    }, true);
+
+    oBox.addEventListener('click', function(e){
+      console.log("我是盒子")
+      e.stopPropagation();
+    }, true)
+  </script>
+</body>
+</html>
