@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+
+    body{
+      height: 4000px;
+    }
+
+    .content-part{
+      width: 1000px;
+      background-color: rgb(126, 121, 119);
+      margin: 0px auto;
+      margin-bottom: 30px;
+      font-size: 50px;
+    }
+
+    .floornav{
+      position: fixed;
+      right: 20px;
+      width: 80px;
+      height: 200px;
+      background-color: orange;
+      top: 50%;
+      margin-top: -100px;
+    }
+
+    .floornav ul{
+      list-style: none;
+    }
+
+    .floornav ul li{
+      width: 80px;
+      height: 40px;
+      line-height: 40px;
+      text-align: center;
+      font-size: 26px;
+      cursor: pointer;
+    }
+
+    .floornav ul li.current{
+      background-color: purple;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <nav class="floornav">
+    <ul id="list">
+      <li data-n="科技" class="current">科技</li>
+      <li data-n="体育">体育</li>
+      <li data-n="娱乐">娱乐</li>
+      <li data-n="视频">视频</li>
+      <li data-n="新闻">新闻</li>
+    </ul>
+  </nav>
+  <section class="content-part" style="height: 674px" data-n="科技">
+    科技栏目
+  </section>
+  <section class="content-part" style="height: 674px" data-n="体育">
+    体育栏目
+  </section>
+  <section class="content-part" style="height: 674px" data-n="娱乐">
+    娱乐栏目
+  </section>
+  <section class="content-part" style="height: 674px" data-n="视频">
+    视频栏目
+  </section>
+  <section class="content-part" style="height: 674px" data-n="新闻">
+    新闻栏目
+  </section>
+
+  <script>
+    //使用事件委托给li添加监听
+    let oList = document.getElementById("list");
+    let lis = document.querySelectorAll("#list li");
+
+    oList.onclick = function(e){
+      if(e.target.tagName.toLowerCase() == 'li'){
+        let n = e.target.getAttribute('data-n');
+        //可以使用属性选择器（就是方括号选择器）来寻找带有相同data-n的content-part
+        let contentPart = document.querySelector('.content-part[data-n=' + n + ']')
+        document.documentElement.scrollTop = contentPart.offsetTop;
+
+      } 
+    }
+
+    //在页面加载好之后，将所有的content-part盒子的offset值推入数组
+    let offsetTopArr = []
+    let contentParts = document.querySelectorAll('.content-part');
+    for(let i = 0; i < contentParts.length; ++i){
+      offsetTopArr.push(contentParts[i].offsetTop)
+    }
+
+    //为了最后一项方便比较，我们可以推入一个无穷大
+    offsetTopArr.push(Infinity);
+    console.log(offsetTopArr);
+
+    let currentLevel = -1;
+
+    //窗口的卷动
+    window.onscroll = function(){
+      let scrollTop = document.documentElement.scrollTop;
+      //遍历offsetTopArr数组，看看当前的scrollTop值在哪两个楼层之间
+      for(var i = 0; i < offsetTopArr.length; ++i){
+        if(scrollTop >= offsetTopArr[i] && scrollTop < offsetTopArr[i+1]){
+          break;
+        }
+      }
+      //退出循环的时候，i是几，就表示当前楼层是几
+      if(currentLevel != i){
+        currentLevel = i;
+        console.log(currentLevel);
+
+        //设置下标为i的项有current Class
+        for(let j = 0; j < lis.length; ++j){
+          if(currentLevel == j){
+            lis[j].className = "current";
+          }
+          else{
+            lis[j].className = '';
+          }
+        }
+      }
+
+    }
+  </script>
+</body>
+</html>
