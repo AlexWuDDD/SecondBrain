@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+
+    .box{
+      width: 800px;
+      height: 130px;
+      border: 1px solid #000;
+      margin: 50px auto;
+      overflow: hidden;
+    }
+
+    .box ul{
+      list-style: none;
+      /*设置大一点，这两li才能浮动*/
+      width: 5000px;
+      position: relative;
+    }
+
+    .box ul li{
+      float: left;
+      margin-right: 10px;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="box" id="box">
+    <ul id="list">
+      <li><img src="./images/number/0.png" alt="" srcset=""></li>
+      <li><img src="./images/number/1.png" alt="" srcset=""></li>
+      <li><img src="./images/number/2.png" alt="" srcset=""></li>
+      <li><img src="./images/number/3.png" alt="" srcset=""></li>
+      <li><img src="./images/number/4.png" alt="" srcset=""></li>
+      <li><img src="./images/number/5.png" alt="" srcset=""></li>
+    </ul>
+  </div>
+  <script>
+    let oBox = document.getElementById('box');
+    let oList = document.getElementById('list');
+
+    //复制多一遍所有的li
+    oList.innerHTML += oList.innerHTML;
+
+    //全局变量，表示当前list的left值
+    let left = 0;
+
+    //定时器
+    let timer = null;
+
+    //动画封装成函数
+    function move(){
+      clearInterval(timer);
+      timer = setInterval(function(){
+        left-=4;
+        //验收
+        if(left <= -1260){
+          left = 0;
+        }
+        oList.style.left = left + "px";
+      }, 20)
+    }
+
+    oBox.onmouseenter = function(){
+      clearInterval(timer)
+    }
+
+    oBox.onmouseleave = function(){
+      move();
+    }    
+  </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #box{
+      width: 100px;
+      height: 100px;
+      background-color: orangered;
+      position: absolute;
+      top:100px;
+      left:100px;
+    }
+  </style>
+</head>
+<body>
+  <button id="btn">按我运动</button>
+  <div id="box"></div>
+
+  <script>
+    let oBtn = document.getElementById("btn");
+    let oBox = document.getElementById("box");
+
+    //标示量，指示当前盒子在左边还是右边
+    let pos = 1; //1左边，2右边
+
+    //函数节流锁
+    let lock = true;
+
+    oBtn.onclick = function(){
+      //首先检查锁是否是关闭的
+      if(!lock) return
+      //把过渡加上
+      oBox.style.transition = "all 2s linear 0s";
+      if(pos == 1){
+        oBox.style.left = "800px";
+        pos = 2;
+      }
+      else if(pos ==2){
+        oBox.style.left = "100px";
+        pos = 1;
+      }
+
+      lock = false;
+      setTimeout(function(){
+        lock = true;
+      }, 2000);
+    }
+  </script>
+</body>
+</html>

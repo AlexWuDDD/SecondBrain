@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+
+    *{
+      margin: 0;
+      padding: 0;
+    }
+
+    .carousel{
+      width: 650px;
+      height: 360px;
+      border: 1px solid #000;
+      margin: 50px auto;
+      position: relative;
+    }
+
+    .carousel ul{
+      list-style: none;
+    }
+
+    .carousel ul li{
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      transition: opacity 1s ease-in-out 0s;
+    }
+
+    .carousel ul li:first-child{
+      opacity: 1;
+    }
+
+    .carousel .leftbtn{
+      position: absolute;
+      left: 20px;
+      width: 50px;
+      height: 50px;
+      background-color: rgb(0, 140, 255);
+      border-radius: 50%;
+      top: 50%;
+      margin-top: -25px;
+    }
+
+    .carousel .rightbtn{
+      position: absolute;
+      right: 20px;
+      width: 50px;
+      height: 50px;
+      background-color: rgb(0, 140, 255);
+      border-radius: 50%;
+      top: 50%;
+      margin-top: -25px;
+    }
+  </style>
+</head>
+<body>
+  <div class="carousel" id="carousel">
+    <ul id="list">
+      <li><img src="./images/beijing/0.jpg" alt=""></li>
+      <li><img src="./images/beijing/1.jpg" alt=""></li>
+      <li><img src="./images/beijing/2.jpg" alt=""></li>
+      <li><img src="./images/beijing/3.jpg" alt=""></li>
+      <li><img src="./images/beijing/4.jpg" alt=""></li>
+    </ul>
+    <a href="#" class="leftbtn" id="leftbtn"></a>
+    <a href="#" class="rightbtn" id="rightbtn"></a>
+
+    <script>
+      let oList = document.getElementById("list");
+
+      let oLeftBtn = document.getElementById("leftbtn");
+      let oRightBtn = document.getElementById("rightbtn");
+      let lis = oList.getElementsByTagName("li");
+
+      //当前是第几张显示
+      let idx = 0;
+
+      //节流
+      let lock = true;
+
+      oRightBtn.onclick = function(){
+
+        if(!lock) return;
+        lock = false;
+
+        //还没改idx,此时的idx这个图片就是老图，老图淡出
+        lis[idx].style.opacity = 0;
+        ++idx;
+        if(idx > 4) idx = 0;
+        //改leidx,此时的idx这个图片就是新图，老图淡入
+        lis[idx].style.opacity = 1;
+
+        setTimeout(function(){
+          lock = true;
+        }, 1000);
+      }
+
+      oLeftBtn.onclick = function(){
+
+        if(!lock) return;
+        lock = false;
+        //还没改idx,此时的idx这个图片就是老图，老图淡出
+        lis[idx].style.opacity = 0;
+        --idx;
+        if(idx < 0) idx = 4;
+        //改leidx,此时的idx这个图片就是新图，老图淡入
+        lis[idx].style.opacity = 1;
+
+        setTimeout(function(){
+          lock = true;
+        }, 1000);
+      }
+    </script>
+  </div>
+</body>
+</html>

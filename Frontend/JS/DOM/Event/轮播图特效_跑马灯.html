@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+
+    *{
+      margin: 0;
+      padding: 0;
+    }
+
+    .carousel{
+      width: 650px;
+      height: 360px;
+      border: 1px solid #000;
+      margin: 50px auto;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .carousel ul{
+      list-style: none;
+      width: 6000px;
+      position: relative;
+      left: 0;
+      transition: left .5s ease 0s;
+    }
+
+    .carousel ul li{
+      float: left;
+    }
+
+    .carousel .leftbtn{
+      position: absolute;
+      left: 20px;
+      width: 50px;
+      height: 50px;
+      background-color: rgb(0, 140, 255);
+      border-radius: 50%;
+      top: 50%;
+      margin-top: -25px;
+    }
+
+    .carousel .rightbtn{
+      position: absolute;
+      right: 20px;
+      width: 50px;
+      height: 50px;
+      background-color: rgb(0, 140, 255);
+      border-radius: 50%;
+      top: 50%;
+      margin-top: -25px;
+    }
+  </style>
+</head>
+<body>
+  <div class="carousel" id="carousel">
+    <ul id="list">
+      <li><img src="./images/beijing/0.jpg" alt=""></li>
+      <li><img src="./images/beijing/1.jpg" alt=""></li>
+      <li><img src="./images/beijing/2.jpg" alt=""></li>
+      <li><img src="./images/beijing/3.jpg" alt=""></li>
+      <li><img src="./images/beijing/4.jpg" alt=""></li>
+    </ul>
+    <a href="#" class="leftbtn" id="leftbtn"></a>
+    <a href="#" class="rightbtn" id="rightbtn"></a>
+
+    <script>
+      let oList = document.getElementById("list");
+
+      let oLeftBtn = document.getElementById("leftbtn");
+      let oRightBtn = document.getElementById("rightbtn");
+
+      //克隆第一张图片
+      let cloneli = oList.firstElementChild.cloneNode(true);
+      oList.appendChild(cloneli);
+
+      //当前ul显示到第几张了，从0开始
+      let idx = 0;
+
+      //函数节流锁
+      let lock = true;
+
+      oRightBtn.onclick = function(){
+
+        if(!lock) return;
+        lock = false;
+
+        list.style.transition = 'left .5s ease 0s';
+        idx += 1
+        if(idx > 4){
+          //设置一个延时器，延时器的功能就是将ul瞬间拉回0的位置
+          setTimeout(function(){
+            list.style.transition = 'none';
+            list.style.left = 0;
+            idx = 0;
+          }, 500);
+        }
+        oList.style.left = -idx * 650 + 'px';
+
+        setTimeout(function(){
+          lock = true
+        }, 500);
+      }
+
+      oLeftBtn.onclick = function(){
+
+        if(!lock) return;
+        lock = false;
+        //判断是不是第0张，如果是，就要瞬间用假的替换真的
+        if(idx == 0){
+          list.style.transition = 'none';
+          list.style.left = -5 * 650 + 'px';
+          /*
+          设置一个延时器，这个延时器的延时时间可以使0毫秒，
+          虽然是9毫秒，但是可以让我们过渡先取消，然后再加上
+          */
+          setTimeout(function(){
+            list.style.transition = 'left .5s ease 0s';
+            idx = 4;
+            oList.style.left = -idx * 650 + 'px'
+          }, 0);
+        }
+        else{
+          idx --;
+          oList.style.left = -idx * 650 + 'px';
+        }
+
+        setTimeout(function(){
+          lock = true
+        }, 500);
+      }
+    </script>
+  </div>
+</body>
+</html>
