@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function fun(){
+      this.a = 3;
+      this.b = 5;
+      if(this. a > this.b){
+        this.c = 10;
+      }
+      else{
+        this.c = 20;
+      }
+    }
+
+    let obj = new fun();
+    console.log(obj);
+  </script>
+</body>
+</html>

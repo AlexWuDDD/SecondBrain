@@ -125,3 +125,200 @@ function deepClone(o){
 let obj2 = deepClone(obj1);
 
 ```
+
+## 上下文
+
+### 函数的上下文
+
+- 函数中可以使用this关键字，它表示函数的上下文
+- 与中文中“这”类似，函数中的this具体指代什么必须通过调用函数时的“前言后语”来判断
+
+```js
+let xiaoming = {
+  nickname: '小明'，
+  age： 12，
+  sayHello ：function(){
+    console.log('我是' + this.nickname + '，我' + this.age + '岁了')；
+  }
+}
+```
+
+- 函数的上下文由调用方式决定
+  - 同一个函数，用不同的形式调用它，则函数的上下文不同
+  - case 1: 对象大点调用函数，函数中的this指代这个打点的对象
+  
+  ```js
+  xiaoming.sayHello();
+  ```
+
+  - case 2: 圆括号直接调用，函数中的this指代window对象
+  
+  ```js
+  let sayHello = xiaoming.sayHello;
+  sayHello();
+  ```
+
+- 函数的上下文（this关键字）由调用函数的方式决定，function是“运行时上下文”策略
+- 函数如果不调用，则不能确定函数的上下文
+
+- 规则1：对象打点调用它的方法函数，则函数的上下文是这个打点的对象
+  - 对象.方法()
+- 规则2： 圆括号直接调用函数，则函数的上下文是window对象
+  - 函数()
+- 规则3： 数组（类数组对象）枚举出函数进行调用，上下文是这个数组（类数组对象）
+  - 数组[下标]()
+
+### 类数组对象
+
+- 什么是类数组对象：所有键名为自然数序列（从0开始），且有length属性的对象
+- arguments对象是最常见的类数组对象，它是函数的实参列表
+
+```js
+function fun(){
+  arguments[3]();
+}
+fun('A', 'B', 'C', function(){
+  console.log(this[1])
+})
+```
+
+- 规则4： IIEF中的函数，上下文是window对象
+
+```js
+(function(){
+
+})();
+```
+
+- 规则5：定时器、延时器调用函数，上下文是window对象
+- 规则6： 时间处理函数的上下文是绑定事件的DOM元素
+
+### call和apply
+
+#### call和apply能指定函数的上下文
+
+```js
+function sum(){
+  alert(this.chinese + this.math + this.length);
+}
+
+var xiaoming = {
+  chinese: 80,
+  math: 95,
+  english: 93
+}
+
+sum.call(xiaoming);
+sum.apply(xiaoming);
+```
+
+#### call和apply的区别
+
+```js
+function sum(b1, b2){
+  alert(this.c + this.m + this.e + b1 + b2);
+}
+
+//call要用逗号罗列参数
+sum.call(xiaoming, 5, 3);
+//apply要把参数写到数组中
+sum.apply(xiaoming, [5, 3]);
+```
+
+#### 到底使用call还是apply?
+
+```js
+function fun1(){
+  fun2.apply(this, arguments);
+}
+
+function fun2(a, b){
+  alert(a+b);
+}
+
+fun1(33, 44);
+```
+
+### 上下文总结
+
+规则|上下文
+-|-
+对象.函数（）|对象
+函数（）|window
+数组[下标]（）|数组
+IIFE|window
+定时器|window
+DOM事件处理函数|绑定DOM元素
+call和apply|认识指定
+用new调用函数|秘密创建出的对象
+
+## 用new操作符调用函数
+
+```js
+new 函数();
+```
+
+- JS规定，使用new操作符调用函数会进行“四步走”：
+  1. 函数体内会自动创建出一个空白对象
+  2. 函数的上下文（this）会指向这个对象
+  3. 函数体内的语句会执行
+  4. 函数会自动返回上下文对象，及时函数没有return语句
+
+
+### 四步走详解
+
+```js
+function fun(){
+  this.a = 3;
+  this.b = 5;
+}
+
+var obj = new fun();
+console.log(obj);
+```
+
+## 类与实例
+
+## prototype
+
+![protoType](./prototype.PNG)
+![protoType2](./prototype2.PNG)
+
+- 普通函数来说的prototype属性没有任何用处，而构造函数的prototype属性非常有用
+- 构造函数的prototype属性是它的实例的原型
+
+![三角关系](./prototype3.PNG)
+
+### 原型链查找
+
+- JavaScript规定：实例可以打点访问它的原型的属性和方法，这被称为“原型链查找”
+
+![原型链查找](./prototype4.PNG)
+![原型链查找2](./prototype5.PNG)
+
+### hasOwnProperty
+
+- hasOwnProperty方法可以检查对象是否真正“自己拥有”某属性或者方法
+
+![hasOwnProperty](./prototype6.PNG)
+
+### in
+
+- in运算符只能检查某个属性或方法是否可以被对象访问，不能检查是否是自己的属性或方法
+
+![in](./prototype7.PNG)
+
+## 在prototype上添加方法
+
+## 原型链的终点
+
+![原型链的终点1](./prototype8.PNG)
+![原型链的终点2](./prototype9.PNG)
+
+### 关于数组的原型链
+
+![数组的原型链](./prototype10.PNG)
+
+## 继承
+
+### 通过原型链实现继承
