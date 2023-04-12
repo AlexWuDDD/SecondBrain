@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var a = new Number(123);
+    var b = new String('Alex');
+    var c = new Boolean(true);
+
+    console.log(a);
+    console.log(typeof a); //object
+    console.log(b);
+    console.log(typeof b); //object
+    console.log(c);
+    console.log(typeof c); //object
+
+    var d = 123;
+    console.log(d.__proto__ == Number.prototype); //true
+    
+  </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>倒计时</title>
+</head>
+<body>
+  <!-- 题目，在页面上实时显示距离2023年高考还有多少天、多少时、多少分、多少秒 -->
+  <h1>2023年高考倒计时</h1>
+  <h2 id="info"></h2>
+  <script>
+
+    var info = document.getElementById('info');
+
+    setInterval(function(){
+      //现在的日期
+      var nd = new Date();
+      //目标的日期， 5表示6
+      var td = new Date(2023, 5, 7);
+
+      //毫秒差
+      var diff = td- nd;
+
+      var day = parseInt(diff / (1000*60*60*24));
+      var hour = parseInt(diff % (1000*60*60*24)/(1000*60*60));
+      var min = parseInt(diff % (1000*60*60*24)%(1000*60*60)/(1000*60));
+      var sec = parseInt(diff % (1000*60*60*24)%(1000*60*60)%(1000*60)/1000);
+      
+      info.innerText = day + '天' + hour + '时' + min + '分' + sec + '秒';
+    }, 1000)
+  </script>
+</body>
+</html>

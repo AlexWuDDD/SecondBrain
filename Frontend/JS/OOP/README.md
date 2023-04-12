@@ -331,3 +331,89 @@ console.log(obj);
 
 ![红绿灯](./%E4%B8%8A%E5%8D%87%E5%88%B0%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1-%E7%BA%A2%E7%BB%BF%E7%81%AF%E5%B0%8F%E6%A1%88%E4%BE%8B.html)
 ![炫彩小球](./%E4%B8%8A%E5%8D%87%E5%88%B0%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1-%E7%82%AB%E5%BD%A9%E5%B0%8F%E7%90%83.html)
+
+## 包装类
+
+### 什么是包装类
+
+- Number()、String()和Boolean()分别是数字、字符串、布尔值的“包装类”
+
+### 举例
+
+- 请看下面的程序
+
+```js
+var a = new Number(123);
+var b = new String('Alex');
+var c = new Boolean(true);
+```
+
+- a,b,c是基本类型值么？它们和普通的数字、字符串、布尔值有什么区别么？
+
+![Example](./%E5%8C%85%E8%A3%85%E7%B1%BB.html)
+
+### 包装类知识总结
+
+- Number()、String()和Boolean()实例都是object类型，它们的PrimitiveValue属性存储它们的本身值
+- new出来的基本类型值可以正常参与运算
+- 包装类的目的就是为了让基本类型值可以从它们的构造函数的prototype上获得方法
+
+## Math对象
+
+- 四舍五入Math.round()
+
+![四舍五入](./%E5%9B%9B%E8%88%8D%E4%BA%94%E5%85%A5%E5%88%B0%E5%B0%8F%E6%95%B0%E7%82%B9%E5%90%8E%E6%9F%90%E4%B8%80%E4%BD%8D.PNG)
+
+### 如何利用Math.max()求数组最大值
+
+- Math.max()要求参数必须是“罗列出来”，而不是数组
+- 还记得apply方法吗？它可以指定函数的上下文，并且以数组的形式传入“零散值”当做函数的参数
+
+```js
+  var arr = [3,6,9,2];
+  var max = Math.max.apply(null, arr);
+  console.log(max);
+```
+
+### 得到[a,b]区间内的整数
+
+```js
+parseInt(Math.random()*(b-a+1)) + a
+```
+
+## Date（日期）对象
+
+- 使用new Date()即可得到当前时间的日期对象，它是object类型值
+- 使用new Date(2020,11,1)即可得到指定日期的日期对象，注意第二个参数表示月份，从0开始算，11表示12月
+- 也可以使用new Date('2020-12-01')这样的写法
+
+```js
+//得到六月一日
+var d2 = new Date(2020,5,1); //不算时区
+var d3 = new Date('2020-06-01'); //算时区
+```
+
+![date_func](./date_func.PNG)
+
+### 时间戳
+
+- 时间戳表示1970年1月1日零点整举例某时刻的毫秒数
+- 通过getTime()方法或者Date.parse()函数可以将日期对象变为时间戳
+- 通过new Date(时间戳)的写法，可以将时间戳变为日期对象
+
+![时间戳](./%E6%97%B6%E9%97%B4%E6%88%B3.html)
+
+![倒计时小程序](./%E5%80%92%E8%AE%A1%E6%97%B6.html)
+
+## 内置构造函数
+
+- JavaScript有很多内置构造函数，比如Array就是数组类型的构造函数，Function就是函数类型的构造函数，Object就是对象类型的构造函数
+- 内置构造函数非常有用，所有该类型的方法都是定义在它的内置构造函数的prototype上的，我们可以给这个对象添加新的方法，从而扩展某类型的功能
+
+## 通过原型链实现继承
+
+![1](./%E7%BB%A7%E6%89%BF1.PNG)
+
+- 让子类构造函数的prototype,指向父类的一个实例
+
+![Demo](./%E9%80%9A%E8%BF%87%E5%8E%9F%E5%9E%8B%E9%93%BE%E5%AE%9E%E7%8E%B0%E7%BB%A7%E6%89%BF.html)
