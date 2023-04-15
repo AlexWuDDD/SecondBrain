@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    let str = "abc123def4567";
+
+    //search()，很像index()
+    let result1 = str.search(/\d+/g);
+    console.log(result1); //3
+    let result2 = str.search(/m/g);
+    console.log(result2); //-1
+    
+    //match();
+    let result3 = str.match(/\d+/g);
+    console.log(result3);//['123', '4567']
+
+    //replace()
+    let result4 = str.replace(/[a-z]+/g, '*'); //注意+表示贪婪的，尽可能多地匹配小写字母
+    console.log(result4); //*123*4567
+
+    let result5 = str.replace(/[a-z]/g, '*'); 
+    console.log(result5);  //***123***4567
+
+    //split
+    let result6 = str.split(/\d+/);
+    console.log(result6);//['abc', 'def', '']
+  </script>
+</body>
+</html>
