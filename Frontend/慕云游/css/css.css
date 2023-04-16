@@ -143,7 +143,7 @@
 .site-head .head-con .soso-box{
   float: left;
   margin-left: 20px;
-  width: 405px;
+  width: 410px;
   padding-top: 2px;
 }
 
@@ -256,14 +256,27 @@
 
 .banner{
   position: relative;
+  overflow: hidden;
+  width: 100%;
 }
 
-.banner img{
+.banner .carousel_list{
+  width: 600%;
+  overflow: hidden;
+  /* translateX中的百分数表示相对于它本身的宽度的多少倍 */
+  transform: none;
+  transition: transform .5s ease 0s;
+}
+
+.banner .carousel_list li{
+  float: left;
+  width: 16.66%;
+}
+
+.banner .carousel_list li img{
   width: 100%;
-  /* 使用min-width 限制最小的宽度*/
   min-width: 1152px;
-  /* 图片可能和盒子的底部产生一个缝隙 此时可以使用一个小技巧*/
-  /* 这是一个小技巧，添加上之后，图片就不会产生缝隙了 */
+  /* 白边的处理 */
   vertical-align: middle;
 }
 
@@ -282,6 +295,8 @@
   /* 这里的100%高度绝对不能省略，因为如果省略了，它的height就是0 */
   /* 那么它的盒子设置16.6%就没有意义了 */
   height: 100%;
+  width: 652px;
+  position: relative;
 }
 
 .banner .center-wrap .banner-nav > ul{
@@ -369,7 +384,7 @@
   margin-top: -9px;
 }
 
-.banner .center-wrap .banner-nav > ul> li.gangaotai::before{
+.banner .center-wrap .banner-nav > ul> li.hk::before{
   width: 18px;
   height: 21px;
   background-position: -28px -217px;
@@ -377,14 +392,14 @@
   left: 11px;
 }
 
-.banner .center-wrap .banner-nav > ul> li.rihan::before{
+.banner .center-wrap .banner-nav > ul> li.jp::before{
   width: 24px;
   height: 19px;
   background-position: -25px -171px;
   margin-top: -9.5px;
 }
 
-.banner .center-wrap .banner-nav > ul> li.dongnanyananya::before{
+.banner .center-wrap .banner-nav > ul> li.as::before{
   width: 18px;
   height: 19px;
   background-position: -28px -262px;
@@ -392,7 +407,7 @@
   left: 12px;
 }
 
-.banner .center-wrap .banner-nav > ul> li.ouzhoumeizhou::before{
+.banner .center-wrap .banner-nav > ul> li.eu::before{
   width: 20px;
   height: 14px;
   background-position: -29px -351px;
@@ -400,7 +415,7 @@
   left: 11px;
 }
 
-.banner .center-wrap .banner-nav > ul> li.aoxinzhongdongfei::before{
+.banner .center-wrap .banner-nav > ul> li.au::before{
   width: 18px;
   height: 17px;
   background-position: -28px -305px;
@@ -408,6 +423,9 @@
   left: 12px;
 }
 
+.banner .center-wrap .banner-nav > ul> li.current{
+  background-color: rgba(0, 0, 0, 0.63);
+}
 
 .banner .center-wrap .banner-nav .menus-box .menu{
   /* 让menu隐藏 */
@@ -422,6 +440,7 @@
   color: white;
   padding: 16px;
   box-sizing: border-box;
+  z-index: 99999;
 }
 
 .banner .center-wrap .banner-nav .menus-box .menu.current{
@@ -444,6 +463,36 @@
 .banner .center-wrap .banner-nav .menus-box .menu dd{
   line-height: 22px;
   font-size: 15px;
+}
+
+.banner .circles{
+  width: 160px;
+  height: 20px;
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  margin-left: -75px;
+  z-index: 9999;
+}
+
+.banner .circles li{
+  float: left;
+  width: 20px;
+  height: 20px;
+  background-color: #36dfba;
+  border-radius: 10px;
+  margin-right: 10px;
+  transition: all 0.5s ease 0s;
+  cursor: pointer;
+}
+
+.banner .circles li:last-child{
+  margin-right: 0;
+}
+
+.banner .circles li.current{
+  width: 40px;
+  background-color: #20BD9A;
 }
 
 .hot-ads{
@@ -1097,4 +1146,19 @@ footer .part2 .copyrights{
 
 footer .part2 .copyrights a{
   color: white;
+}
+
+body .backtotop{
+  position: fixed;
+  bottom: 80px;
+  right: 80px;
+  width: 80px;
+  height: 80px;
+  background-color: #ccc;
+  text-align: center;
+  font-size: 20px;
+  padding-top: 10px;
+  box-sizing: border-box;
+  color: #000;
+  display: none;
 }
