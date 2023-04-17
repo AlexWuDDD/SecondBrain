@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>非箭头函数中的this指向问题</title>
+</head>
+<body>
+  <script>
+    //1.全局作用域中的this指向
+    console.log(this); //window
+
+    //2. 一般函数（非箭头函数）中的this指向
+
+    function add(){
+      "use strict";
+      console.log(this);
+    }
+    //严格模式下add()指向undefined
+    //非严格模式下，指向window
+    add();
+    window.add();
+
+    //只有在函数调用的时候this指向才确定，不调用的时候，不知道指向谁
+    //this指向和函数在哪儿调用没关系，只和谁在调用有关
+
+    const cals = {
+      add: add
+    };
+
+    cals.add(); //calc对象
+
+    const adder = cals.add;
+    adder(); //undefine
+
+    document.onclick = function(){
+      console.log(this);
+    }
+
+    function Person(username){
+      this.username = username;
+      console.log(this);
+    }
+
+    const p = new Person("Alex");
+
+  </script>
+</body>
+</html>

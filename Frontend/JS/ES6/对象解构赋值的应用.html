@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>对象解构赋值的应用</title>
+</head>
+<body>
+  <script>
+    //1.函数参数的解构赋值
+    /*
+    const logPersonInfo = user =>{
+      console.log(user.username, user.age);
+    }
+
+    logPersonInfo({username: 'alex', age: 18});
+    */
+    const logPersonInfo = ({age=0, username='alex'}) => console.log(username, age);
+    logPersonInfo({age: 18});
+
+    //2.复杂的嵌套
+    const obj = {
+      x:1,
+      y:[2,3,4],
+      z:{
+        a:5,
+        b:6
+      }
+    }
+
+    /*
+    const {x, y:[,,c], z:{a}} = obj;
+    console.log(x, c, a);
+    */
+    const{y:y, y:[,yy]} = obj;
+    console.log(y, yy);
+  </script>
+</body>
+</html>

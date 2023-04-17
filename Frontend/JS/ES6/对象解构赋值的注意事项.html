@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>对象解构赋值的注意事项</title>
+</head>
+<body>
+  <script>
+    //1.默认值的生效条件
+    //对象的属性值严格等于undefined时，对应的默认值才会生效
+
+    //2.默认值表达式
+    //如果默认值是表达式，默认值表达式是惰性求值的
+
+    //3.将一个已经声明的变量用于解构赋值
+    //let {x} = {x:1};
+    //console.log(x);
+
+    //let x = 2;
+    //({x} = {x:1});
+    //console.log(x);
+
+    //4.可以取得继承的属性
+    //const {a=1} = {}
+    //console.log(a)
+
+    const {toString} = {}
+    console.log(toString);
+  </script>
+</body>
+</html>

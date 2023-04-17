@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>对象解构赋值的原理</title>
+</head>
+<body>
+  <script>
+    //1. 模式（结构）匹配
+    //{}={}
+
+    //2.属性名相同的完成赋值
+    /*
+    let {age, username} = {
+      username: 'Alex',
+      age:18
+    };
+    */
+    //完整写法
+    let {'age':age, 'username': uname} = {
+      username: 'Alex',
+      age:18
+    };
+    console.log(uname, age);
+  </script>
+</body>
+</html>
