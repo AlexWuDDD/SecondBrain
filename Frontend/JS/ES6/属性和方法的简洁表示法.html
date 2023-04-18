@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>属性和方法的简洁表示法</title>
+</head>
+<body>
+  <script>
+    //1.对象字面量是什么
+    //实例化构造函数生成对象
+    //const person = new Object();
+    //person.age = 18;
+    //person.speak = ()=>console.log("speak");
+    //对象字面量
+    //const person = {
+    //  age: 18,
+    //  speak: ()=>console.log("speak")
+    //}
+    
+    //2.属性的简洁表示法
+    //键名和变量或常量名一样的时候，可以只写一个
+    //const age = 18;
+    //const person ={
+    //  age,
+    //  speak: ()=>console.log("speak")
+    //}
+
+    //console.log(person);
+
+    //3.方法的简洁表示法
+    //方法可以省略冒号和function关键字
+    const person = {
+      //speak: function(){}
+      speak(){}
+    }  
+
+  </script>
+</body>
+</html>
