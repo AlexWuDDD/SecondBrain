@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>剩余参数</title>
+</head>
+<body>
+  <script>
+    //1. 认识剩余参数
+    //const add = (x, y, z, ...args)=> {};
+
+    //2. 剩余参数本质
+    const add = (x, y, ...args) => {
+      console.log(x, y, args);
+    }
+    add(1,2,3,4,5);
+
+    //剩余参数永远是个数组，即使没有值，也是空数组
+    
+  </script>
+</body>
+</html>
