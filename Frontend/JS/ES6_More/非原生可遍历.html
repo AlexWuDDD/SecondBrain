@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    const person = {
+      sex: 'male',
+      age: 18
+    }
+
+    person[Symbol.iterator] = ()=>{
+
+      let index = 0;
+      return {
+        next(){
+          ++index;
+          if(index === 1){
+            return{
+              value:person.age,
+              done:false
+            }
+          }
+          else if(index === 2){
+            return{
+              value:person.sex,
+              done:false
+            }
+          }
+          else{
+            return{
+              done: true
+            }
+          }
+        }
+      }
+    }
+
+    for (const item of person){
+      console.log(item);
+    }
+
+    //有length和索引属性的对象
+    const obj = {
+      0: 'alex',
+      1: 'male',
+      length: 2
+    }
+
+    //obj[Symbol.iterator] = Array.prototype[Symbol.iterator];
+
+    obj[Symbol.iterator] = ()=>{
+      let index = 0;
+      return{
+        next(){
+          let value, done;
+          if(index < obj.length){
+            value = obj[index];
+            done=false;
+          }
+          else{
+            done=true
+          }
+          ++index;
+          return{
+            value,
+            done
+          }
+        }
+      }
+    }
+
+    for (const item of obj){
+      console.log(item);
+    }
+  </script>
+</body>
+</html>
