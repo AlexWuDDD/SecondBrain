@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //1.什么时候执行
+    //当Promise状态发生变化时，不论如何变化都会执行，不变化不执行
+    /*
+    new Promise((resolve, reject)=>{
+      //resolve(123);
+      reject(123);
+    }).catch(err=>{
+      console.log(err);
+    }).finally(data=>{
+      console.log(data);
+    });
+    */
+    //2.本质
+    //finally()本质上是then()的特例
+    new Promise((resolve, reject)=>{
+      //resolve(123);
+      reject(123);
+    }).finally(data=>{
+      console.log(data);
+    }).catch(err=>{
+      console.log(err);
+    });
+    //等同于
+    new Promise((resolve, reject)=>{
+      //resolve(123);
+      reject(123);
+    }).then(result=>{
+      return result
+    }, err=>{
+      return new Promise((resolve,reject)=>{reject(err);});
+    }).catch(err=>{
+      console.log(err);
+    });  
+  </script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Promise是什么</title>
+  <style>
+    *{
+      padding: 0;
+      margin: 0;
+    }
+
+    #box{
+      width: 300px;
+      height: 300px;
+      background-color: red;
+      transition: all 0.5s;
+    }
+  </style>
+</head>
+<body>
+  <div id="box"></div>
+  <script>
+    //1.认识Promise
+    //Promise是异步操作的一种解决方案
+    //回调函数
+    /*
+    document.addEventListener('click', ()=>{
+      console.log("这里异步的");
+    }, false);
+    console.log("这里是同步的");
+    */
+
+    //2.什么时候使用Promise
+    //Promise一般用来解决层层嵌套的回调函数（回调地狱）
+    const move = (el, {x=0, y=0} = {}, end = ()=>{})=>{
+      el.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+
+      el.addEventListener('transitionend', ()=>{
+        end();
+      }, false)
+    }
+
+    const movePromise = (el, point) => {
+      return new Promise(resolve=>{
+        move(el, point, ()=>{
+          resolve();
+        })
+      })
+    };
+
+
+    const boxEl = document.getElementById("box");
+    /*
+    document.addEventListener('click', ()=>{
+      move(boxEl, {x:150}, ()=>{
+        move(boxEl,{x:150, y:150}, ()=>{
+          move(boxEl, {y:150}, ()=>{
+            move(boxEl);
+          })
+        });
+      })
+    },false)
+    */
+
+    document.addEventListener('click', ()=>{
+      movePromise(boxEl, {x: 150, y: 0}).then(()=>{
+        return movePromise(boxEl, {x:150, y: 150});
+      }).then(()=>{
+        return movePromise(boxEl, {x:0, y: 150});
+      }).then(()=>{
+        return movePromise(boxEl, {x:0, y: 0});
+      });
+    }, false);
+
+
+  </script>
+</body>
+</html>

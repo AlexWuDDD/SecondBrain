@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //1.有什么用
+    /*
+    then(
+      data=>{},
+      err=>{}
+    )
+    */
+    //then(data=>{})
+    //catch专门用来处理rejected状态
+    //catch本质上是then的特例
+    //then(null, err=>{})
+
+    //2.基本用法
+    new Promise((resolve, reject)=>{
+      //resolve(123);
+      reject(456);
+    }).then(data=>{
+      console.log(data);
+    }).catch(err=>{
+      console.log(err);
+      return "err1";
+    }).then(data=>{
+      console.log(data);
+    }).catch(err=>{
+      console.log(err);
+    })
+
+    //catch可以捕获它前民的错误
+    //一般总是建议，Promise对象后面要跟catch方法，这样可以处理Promise内部发生的错误
+
+  </script>
+</body>
+</html>
