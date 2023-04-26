@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //1.resolve或reject函数执行后的代码
+    //推荐在调用resolve或reject函数的时候加上return,不再执行它们后面的代码
+    //new Promise((resolve, reject)=>{
+    //  //resolve(123);
+    //  return reject("reason");
+    //  console.log("hi");
+    //})
+
+    //2. Promise.all/race/allSettled的参数问题
+    //参数如果不是Promise数组，会将不是Promise的数组转变成Promise对象
+    Promise.all([1,2,3]).then(datas=>{
+      console.log(datas);
+    })
+    //等价于
+    Promise.all([
+      Promise.resolve(1),
+      Promise.resolve(2),
+      Promise.resolve(3),
+    ]).then(datas=>{
+      console.log(datas);
+    });
+
+    //不只是数组，任何可遍历的都可以作为参数
+    //数组、字符串、Set、Map、NodeList、arguments
+
+    //3.Promise.all/race/allSettled的错误处理
+    //错误既可以单独处理，也可以统一处理
+    //一旦被处理，就不会再其他地方再处理一遍
+  </script>
+</body>
+</html>

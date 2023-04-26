@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <img 
+    src="1.jpg" 
+    alt=""
+    id="img"
+  />
+  <script>
+    //1.异步加载图片
+    const loadImgAsync = url =>{
+      return new Promise((resolve, reject)=>{
+         const img = new Image();
+         
+         img.onload = ()=>{
+          resolve(img);
+         };
+
+         img.onerror = ()=>{
+          reject(new Error(`Could not load image at ${url}`));
+         }
+
+         //赋值完，就开始加载图片
+         img.src = url;
+      })
+    }
+
+    loadImgAsync('https://n.sinaimg.cn/sports/transform/180/w640h340/20230426/04e7-ebecbbb9a9414006e5d0e75bfc494174.jpg')
+    .then(img=>{
+      const imgObj = document.getElementById("img");
+      imgObj.src = img.src;
+    })
+    .catch(err=>{
+      console.log(err);
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //1. Promise.resolve()
+    //是成功状态Promise的一种简写形式
+    //new Promise(resolve => resolve("foo"));
+    //简写
+    //Promise.resolve("foo");
+
+    //参数
+    //一般参数
+    //Promise.resolve('foo').then(data=>console.log(data));
+  
+    //Promise
+    const p1 = new Promise(resolve => {
+      console.log(new Date(Date.now()));
+      setTimeout(resolve, 1000, '我执行了');
+    })
+    /*
+    Promise.resolve(p1).then(data=>{
+      console.log(new Date(Date.now()));
+      console.log(data);
+    })
+    */
+    //等价于
+    /*
+    p1.then(data=>{
+      console.log(new Date(Date.now()));
+      console.log(data);
+    })
+    */
+
+    /*
+    new Promise(resolve => resolve(p1)).then(data=>{
+      console.log(new Date(Date.now()));
+      console.log(data);
+    })
+    */
+
+    //具有then方法的对象
+    /*
+    const thenable = {
+      then(resolve, reject){
+        console.log('then');
+        //resolve("data");
+        reject("err");
+      }
+    }
+
+    Promise.resolve(thenable).then(
+      data=>console.log(data),
+      err=>console.log(err)
+    )
+    */
+
+    //console.log(Promise.resolve(thenable));
+  
+    //2. Promise.reject()
+    //失败状态Promise的一种简写形式
+    new Promise((resolve, reject)=>{
+      reject("reason");
+    })
+    //等价于
+    Promise.reject("reason");
+
+    //参数
+    //不管什么参数，都会原封不动地向后传递，作为后续方法的参数
+
+    new Promise((resolve, reject)=>{
+      resolve(123);
+    }).then(data=>{
+      console.log(data);
+      //return data;
+      //return Promise.resolve(data);
+      return Promise.reject(data);
+    }).then(data=>{
+      console.log(data);
+      return data;
+    }).catch(err=>{
+      console.log(err);
+    })
+  </script>
+</body>
+</html>
