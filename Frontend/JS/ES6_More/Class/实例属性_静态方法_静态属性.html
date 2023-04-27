@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //1.实例属性
+    //方法就是值为函数的特殊属性
+    class Person{
+
+      age = 18;
+      sex = 'male';
+      getSex = function(){
+        return this.sex;
+      }
+
+      constructor(name){
+        this.name = name;
+      }
+
+      speak(){
+        console.log('speak');
+      }
+
+      //2.静态方法
+      static run(){
+        console.log('run');
+      }
+
+      //3.静态属性, 不推荐, 有兼容性问题
+      //static version = '1.0';
+
+      //变通
+      static getVersion(){
+        return '1.0';
+      }
+    }
+
+    //3.静态属性, 也不太好
+    Person.verion = '1.0';
+
+    //2.静态方法, 不推荐
+    Person.ask = function(){
+      console.log('ask');
+    }
+
+    const p = new Person("Alex");
+    console.log(p.name);
+    console.log(p.age);
+    console.log(p.getSex());
+    p.speak();
+    Person.run();
+    Person.ask();
+  </script>
+</body>
+</html>

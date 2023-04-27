@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //模拟私有属性和方法
+    //_开头表示私有
+    /*
+    class Person{
+      constructor(name){
+        this._name = name;
+      }
+    }
+    */
+
+    //将私有属性和方法移出类
+    (function(){
+      let usename;
+
+      class Person{
+        constructor(name){
+          usename = name;
+        }
+      }
+
+      window.Person = Person;
+    })()
+
+  </script>
+</body>
+</html>

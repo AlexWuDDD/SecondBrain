@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //1.认识Class
+
+    //2.Class的基本用法
+    //类名一般来说首字母大写
+    class Person{
+      //实例化时执行构造方法，所以必须有构造方法，但可以不写出来
+      constructor(name, age){
+        console.log("实例化试执行构造方法");
+        this.name = name;
+        this.age = age;
+
+        //一般在构造方法中定义属性，方法不在构造方法中定义
+        //this.speak = ()=>{}
+
+
+      }
+
+      //各实例共享的方法
+      speak(){}
+    };
+
+    const p = new Person('ZS', 18);
+    console.log(p);
+  </script>
+</body>
+</html>

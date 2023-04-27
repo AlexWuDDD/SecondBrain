@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //1.子类继承父类
+    class Person{
+      constructor(name, sex){
+        this.name = name;
+        this.sex = sex;
+
+        this.say = function(){}
+      }
+
+      speak(){
+        console.log("parent");
+      }
+      static run(){}
+    }
+
+    Person.version = '1.0';
+
+    class Programmer extends Person{
+      constructor(name, sex){
+        super(name, sex);
+      }
+    }
+
+    console.log(new Programmer('Alex', 32));
+
+    //2.改写继承的属性或方法
+    class Driver extends Person{
+      constructor(name, sex, licenceID){
+        //!!!this操作不能放在前面!!!
+        super(name, sex);
+        this.licenceID = licenceID;
+      }
+
+      //同名覆盖
+      speak(){
+        super.speak();
+        console.log("Driver speak");
+      }
+    }
+
+    const d = new Driver();
+    d.speak();
+  </script>
+</body>
+</html>
