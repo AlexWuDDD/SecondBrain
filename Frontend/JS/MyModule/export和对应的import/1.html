@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>export和对应的import</title>
+</head>
+<body>
+  <script type="module">
+    //对应export default
+    //import age from "./module.js";
+    
+    //import {age as myAge, sexm} from "./module.js";
+    //console.log(myAge, sexm);
+
+    //整体导入
+    //import * as obj from './module.js';
+    //console.log(obj.age, obj.sexm);
+    //console.log(obj.default);
+
+    //同时导入
+    //一定是export default在前
+    import age2, {age, sexm} from "./module.js";
+    console.log(age, sexm, age2);
+  </script>
+</body>
+</html>
