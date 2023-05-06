@@ -1,0 +1,17 @@
+{
+  "name": "babel_prepare",
+  "version": "1.0.0",
+  "description": "- Node.js是个平台或者工具，对应浏览器\r   - 后端的Javascript = ECMAScript + IO + File + ...等服务器端的操作\r - npm: node包管理工具\r - npm install",
+  "main": "index.js",
+  "scripts": {
+    "build": "babel src -d dist",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.21.5",
+    "@babel/core": "^7.21.8",
+    "@babel/preset-env": "^7.21.5"
+  }
+}
