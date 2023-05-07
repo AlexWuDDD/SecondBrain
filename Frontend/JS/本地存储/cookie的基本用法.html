@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cookie的基本用法</title>
+</head>
+<body>
+  <script>
+    //1. 写入cookie
+    //document.cookie='username=zs';
+    //document.cookie='age=18';
+
+    //不能一起设置，只能一个一个设置
+    //document.cookie='username=zs;age=18';
+
+    //2.读取cookie
+    //console.log(document.cookie); //username=zs; age=18
+    //读取的是有一个名值对构成的字符串
+    //每个名值对之间由“; ”（一个分号和一个空格）隔开
+
+    //3, 想长时间存在，设置Expires或Max-Age
+    //expires: 值为Date类型
+    document.cookie=`username=zs; expires=${new Date('2023-5-07 8:19:00')}`;
+    //max-age：值为数字，表示当前时间+多少秒后过期，单位是秒
+    document.cookie='age=18; max-age=10';
+  </script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>操作locakStorage</title>
+</head>
+<body>
+
+  <form id="login" action="www.baidu.com" method="post">
+    <input type="text" name="username" />
+    <input type="password" name="password" />
+    <input type="submit" id="btn" value="登录" />
+  </form>
+
+  <script>
+    /*
+    //console.log(localStorage);
+    //setItem
+    localStorage.setItem("key1", "value1");
+    localStorage.setItem("key1", "value2");
+    localStorage.setItem("key3", "value3");
+
+    //length
+    console.log(localStorage.length);
+
+    //getItem
+    console.log(localStorage.getItem('key1'));
+    console.log(localStorage.getItem('key11')); //null
+
+    //removeItem
+    localStorage.removeItem('key1');
+    console.log(localStorage.getItem('key1'));
+    //删除不存在的key, 不报错
+    localStorage.removeItem("sssss");
+
+    //clear 清空
+    localStorage.clear();
+    */
+
+    //自动填充
+
+    const loginForm = document.getElementById('login');
+    const btn = document.getElementById("btn");
+
+    const username = localStorage.getItem("username");
+    if(username){
+      loginForm.username.value = username;
+    }
+
+    btn.addEventListener('click', e=>{
+      e.preventDefault();
+      //数据验证
+      console.log(loginForm.username.value);
+      localStorage.setItem('username', loginForm.username.value);
+
+      loginForm.submit();
+    }, false)
+  </script>
+</body>
+</html>
