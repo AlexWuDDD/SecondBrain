@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //1.携带数据
+    //GET请求不能通过请求体携带数据，但可以通过请求头携带
+    const url = "https://www.imooc.com/api/http/search/suggest?words=js";
+
+    const xhr = new XMLHttpRequest();
+
+    xhr.onreadystatechange = ()=>{
+      if(xhr.readyState !== 4) return;
+
+      if((xhr.status >= 200 && xhr.status < 300) || xhr.status === 304){
+        console.log(xhr.responseText);
+        console.log(typeof xhr.responseText);
+      }
+    }
+
+    xhr.open('GET', url, true);
+    xhr.send(null);
+
+    //2.数据编码
+    //如果携带的数据是非英文字母的画，比如说汉字，就需要编码之后再发送给后端，不然会造成乱码问题，可以使用encodeURIComponent()编码
+  </script>
+</body>
+</html>
