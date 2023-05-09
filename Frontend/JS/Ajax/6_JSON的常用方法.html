@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JSON的常用方法</title>
+</head>
+<body>
+  <script type="module">
+    //1. JSON.parse()
+    //JSON格式的字符串解析成JS中的对应值
+    //一定是合法的JSON字符串，否则会报错
+    try{
+      JSON.parse("{AAA,AAA}")
+    }
+    catch(e){
+      console.log("error: ", e);
+    }
+
+    //2. JSON.stringify()
+    //可以将JS的基础数据类型，对象或者数组转换成JSON格式的字符串
+    
+    //使用JSON.parse()和JSON.stringify()封装localStorage
+  </script>
+</body>
+</html>

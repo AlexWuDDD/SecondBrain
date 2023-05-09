@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>跨域资源共享</title>
+</head>
+<body>
+  <script>
+    //1. CORS是什么
+    //Access-Control-Allow-Origin: *
+    //表明允许所有的域名来跨域请求它， *是通配符，没有任何限制
+
+    //只允许指定域名的跨域请求
+    //Access-Control-Allow-Origin: http://127.0.0.1:5500
+
+    //2. 使用CORS跨域的过程
+    //(1) 浏览器发送跨域请求
+    //(2) 后端在响应中添加Access-Control-Allow-Origin头信息
+    //(3) 浏览器接收到响应
+    //(4) 如果是同域下的请求，浏览器不会额外做什么，这次前后端通信就圆满了
+    //(5) 如果是跨域请求，浏览器会从响应头中查找是否允许跨域访问
+    //(6) 如果允许跨域，通信圆满完成
+    //(7) 如果没找到或不包含想要的跨域的域名，就丢弃响应结果
+
+    //3. CORS的兼容性
+    //IE10以上版本的浏览器可以正常使用CORS
+  </script>
+</body>
+</html>

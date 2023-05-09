@@ -1,0 +1,9 @@
+{
+  "username": "al",
+  "age": 18,
+  "hobby": ["book", "Video Game"],
+  "family":{
+    "father": "Aaaa",
+    "mother": "aaaa"
+  }
+}
