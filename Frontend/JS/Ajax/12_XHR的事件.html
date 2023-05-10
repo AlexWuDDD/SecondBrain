@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>XHR的事件</title>
+</head>
+<body>
+  <script>
+
+    const url = "https://www.imooc.com/api/http/search/suggest?words=js";
+
+    const xhr = new XMLHttpRequest();
+
+    //IE9开始
+    //1. load事件
+    // 响应数据可用时触发
+    xhr.onload = ()=>{
+
+      if((xhr.status >= 200 && xhr.status < 300) || xhr.status === 304){
+        console.log(xhr.response);
+      }
+    }
+
+    //2. error事件
+    // IE10开始
+    xhr.addEventListener('error',(e)=>{
+      console.log("error: ", e);
+    },false)
+
+    //3. abort事件
+    //IE10开始
+    xhr.addEventListener('abort', ()=>{
+      console.log("abort");
+    }, false);
+
+    //4. timeout事件
+    xhr.addEventListener("timeout", ()=>{
+      console.log('timeout');
+    }, false);
+
+    xhr.open('GET', url, true);
+
+    xhr.responseType = 'json';
+    xhr.timeout = 10;
+
+    xhr.send(null);
+    //xhr.abort();
+  </script>
+</body>
+</html>

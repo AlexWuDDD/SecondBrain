@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>XHR的属性</title>
+</head>
+<body>
+  <script>
+    //1. responseType和response属性
+    // IE6~9不支持， IE10开始支持
+    /*
+    const url = "https://www.imooc.com/api/http/search/suggest?words=js";
+
+    const xhr = new XMLHttpRequest();
+
+    xhr.onreadystatechange = ()=>{
+      if(xhr.readyState !== 4) return;
+
+      if((xhr.status >= 200 && xhr.status < 300) || xhr.status === 304){
+        //文本形式的响应内容
+        //responseText只能在没有设置responseType或者responseType=''或'text'的时候才能使用
+        //console.log(xhr.responseText);
+        //console.log(typeof xhr.responseText);
+
+        //可以用来替代responseText
+        console.log(xhr.response);
+      }
+    }
+
+    xhr.open('GET', url, true);
+    
+    //xhr.responseType = ''
+    //xhr.responseType = 'text';
+    xhr.responseType = 'json';
+
+    xhr.send(null);
+    */
+
+    //2. timeout属性
+    //设置请求的超时时间, 单位是ms
+    //配合timeout事件一起使用
+    const url = "https://www.imooc.com/api/http/search/suggest?words=js";
+
+    const xhr = new XMLHttpRequest();
+
+    xhr.onreadystatechange = ()=>{
+      if(xhr.readyState !== 4) return;
+
+      if((xhr.status >= 200 && xhr.status < 300) || xhr.status === 304){
+        console.log(xhr.response);
+      }
+    }
+
+    xhr.open('GET', url, true);
+
+    xhr.responseType = 'json';
+    xhr.timeout = 10 * 1000;
+    //IE8开始支持
+
+    xhr.send(null);
+
+    //3. withCredentials属性
+    //指定使用Ajax发送请求时是否携带Cookie
+
+    //使用Ajax发送请求，默认情况下，同域时，会携带Cookie；
+    //跨域时，不会，如果要带
+    xhr.withCredentials = true;
+    //最终能够成功跨域携带Cookie，还要看服务器同不同意
+  </script>
+</body>
+</html>
