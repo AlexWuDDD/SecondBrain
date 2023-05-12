@@ -5,7 +5,7 @@ import {serialize, addURLData} from "./utils.js"
 import {HTTP_GET, CONTENT_TYPE_FORM_URLENNCODED, CONTENT_TYPE_JSON} from './constants.js';
 
 //默认参数
-import DEFAULTS from "./default";
+import DEFAULTS from "./default.js";
 
 //Ajax类
 class Ajax{
@@ -18,7 +18,7 @@ class Ajax{
   }
 
   init(){
-    const xhr = new XMLDocument();
+    const xhr = new XMLHttpRequest();
     this.xhr = xhr;
 
     //绑定响应事件处理函数

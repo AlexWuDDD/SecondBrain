@@ -1,4 +1,4 @@
-import {CONTENT_TYPE_FORM_URLENNCODED} from "./constants";
+import {CONTENT_TYPE_FORM_URLENNCODED} from "./constants.js";
 
 //默认参数
 const DEFAULTS = {

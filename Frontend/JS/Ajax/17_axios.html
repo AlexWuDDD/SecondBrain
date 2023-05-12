@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>axios</title>
+</head>
+<body>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script>
+    //1.axios是什么
+    //axios是一个基于Promise的HTTP库，可以用在浏览器和node.js中
+    //第三方Ajax库
+
+    //2. 基本用法
+    const url = "https://www.imooc.com/api/http/search/suggest?words=js";
+
+    axios(url, {
+      method: "post",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      //通过请求头携带的数据
+      params:{
+        username: "alex",
+      },
+      //通过请求体携带的数据
+      //data:{
+      //  age: 18
+      //}
+      data: "age=18&sex=male",
+      //timeout: 1
+    })
+    .then(res=>{
+      console.log(res.data);
+    })
+    .catch(err=>{
+      console.log(err);
+    })
+
+    axios.get(url, {
+      params:{
+        username: "alex"
+      }
+    }).then(res=>{
+      console.log(res.data);
+    });
+
+    axios.post(url, 'username=alex')
+    .then(res=>{
+      console.log(res);
+    })
+
+    //axios.put()
+    //axios.delete()
+  </script>
+</body>
+</html>

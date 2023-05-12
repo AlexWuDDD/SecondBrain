@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fetch</title>
+</head>
+<body>
+  <script>
+    //1. Fetch是什么
+    //Fecth也是前后端通信的一种方式
+    //Fecth是Ajax(XMLHttpRequest)的一种替代方案, 是基于Promise的
+
+    //Ajax的兼容性比Fecth好
+    //没有abort timeout
+
+    //2. Fetch的基本用法
+    const url = "https://www.imooc.com/api/http/search/suggest?words=js";
+    fetch(url,{
+      method:'post',
+      body: JSON.stringify(),
+      headers: {
+
+      },
+      mode: 'cors',
+      credentials:"include"
+    })
+    .then(res=>{
+      console.log(res);
+      //body/bodyUsed
+      //body只能读一次，读过之后就不能再读了
+
+      //ok
+      //如果为true, 表示可以读取数据，不用再去判断HTTP状态码了
+
+      if(res.ok){
+        //console.log(res.json());
+        //return res.text();
+        return res.json();
+      }
+      else{
+        throw new Error(`HTTP CODE异常${res.status}`);
+      }      
+    })
+    .then(data=>{
+      console.log(data);
+    })
+    .catch(err=>{
+      console.log(err);
+    })
+    ;
+  </script>
+</body>
+</html>
